@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 12 - Trusted computing และ platform trust | NU 305331</title>
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body class="deck-page">
+  <main class="deck" data-week="12" data-total="8">
+    <nav class="deck-topbar" aria-label="Slide controls">
+      <a class="home-link" href="index.html">305331 HTML Slides</a>
+      <span class="deck-title">Week 12: Trusted computing และ platform trust</span>
+      <span class="counter"><span id="current-slide">1</span> / 8</span>
+    </nav>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    <div class="stage">
+<section class="slide layout-title" data-slide="1">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Trusted does not mean perfect</h2>
+  </header>
+  <div class="slide-body">
+    <div class="title-points"><p>platform trust ลด risk บาง layer แต่ไม่แทน control ทั้งหมด</p></div>
+  </div>
+  <aside class="speaker-note"><strong>Speaker Focus:</strong> กันความเข้าใจผิดว่า trusted computing เป็น magic security</aside>
+</section>
+<section class="slide layout-content" data-slide="2">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Root of trust</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>จุดเริ่มต้นของ chain ที่ระบบเชื่อถือ</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="3">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Chain of trust</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>firmware -&gt; bootloader -&gt; OS -&gt; application</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="4">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Secure/measured boot</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>evidence ว่า boot path อยู่ใน state ที่คาดหวัง</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="5">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Attestation</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>claim ต้องมี measurement และ policy comparison</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="6">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Limits</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>patching, access control, logging, human process ยังจำเป็น</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-practice" data-slide="7">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Lab handoff</h2>
+  </header>
+  <div class="slide-body">
+    <div class="practice-panel"><p>Lab 9: trusted-systems concept note</p></div>
+  </div>
+  <aside class="speaker-note"><strong>Activity Handoff:</strong> เปิด `../labs/lab-09-trusted-computing.md`</aside>
+</section>
+<section class="slide layout-wrap" data-slide="8">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 12</p>
+    <h2>Exit prompt</h2>
+  </header>
+  <div class="slide-body">
+    <div class="wrap-panel"><p>&quot;attestation result ยังไม่พิสูจน์อะไร&quot;</p></div>
+  </div>
+  <aside class="speaker-note">Prompt students for individual reflection or exit ticket responses.</aside>
+</section>
+    </div>
+    <footer class="deck-help">
+      <span>Space / arrows: move</span>
+      <span>N: notes</span>
+      <span>P: print/PDF</span>
+      <span>F: fullscreen</span>
+    </footer>
+  </main>
+  <script src="deck.js"></script>
+</body>
+</html>

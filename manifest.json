@@ -1,0 +1,114 @@
+[
+  {
+    "kind": "week",
+    "week": 1,
+    "title": "W1 Introduction — 6 หัวข้อย่อย + กติกาวิชา",
+    "output": "week-01.html",
+    "slide_count": 27
+  },
+  {
+    "kind": "week",
+    "week": 2,
+    "title": "W2 Incident Evidence — แยก asset/threat/vulnerability/impact/control จากหลักฐานเหตุการณ์",
+    "output": "week-02.html",
+    "slide_count": 25
+  },
+  {
+    "kind": "week",
+    "week": 3,
+    "title": "Asset, data flow และ trust boundary",
+    "output": "week-03.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 4,
+    "title": "Threat modeling ที่ใช้ตัดสินใจได้",
+    "output": "week-04.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 5,
+    "title": "Authentication ไม่จบที่หน้า login",
+    "output": "week-05.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 6,
+    "title": "Access control ต้องตรวจที่ resource จริง",
+    "output": "week-06.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 7,
+    "title": "Hash, MAC และ encryption ต้องเริ่มจาก objective",
+    "output": "week-07.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 8,
+    "title": "Public key, certificate และ key management",
+    "output": "week-08.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 9,
+    "title": "Network exposure และ secure transport",
+    "output": "week-09.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 10,
+    "title": "Web security finding ต้องมี evidence และ false-positive guard",
+    "output": "week-10.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 11,
+    "title": "จาก finding ไปสู่ remediation ticket",
+    "output": "week-11.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 12,
+    "title": "Trusted computing และ platform trust",
+    "output": "week-12.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 13,
+    "title": "Side-channel awareness และ risk communication",
+    "output": "week-13.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 14,
+    "title": "Evidence trace และ peer review ก่อน final",
+    "output": "week-14.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "week",
+    "week": 15,
+    "title": "Final security communication และ individual defence",
+    "output": "week-15.html",
+    "slide_count": 8
+  },
+  {
+    "kind": "chapter",
+    "week": 1,
+    "title": "ตำราบทที่ 1 — นิยาม ขอบเขต สินทรัพย์ และเป้าหมายการปกป้อง",
+    "output": "chapter-01.html",
+    "slide_count": 25
+  }
+]

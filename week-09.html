@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 09 - Network exposure และ secure transport | NU 305331</title>
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body class="deck-page">
+  <main class="deck" data-week="09" data-total="8">
+    <nav class="deck-topbar" aria-label="Slide controls">
+      <a class="home-link" href="index.html">305331 HTML Slides</a>
+      <span class="deck-title">Week 09: Network exposure และ secure transport</span>
+      <span class="counter"><span id="current-slide">1</span> / 8</span>
+    </nav>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    <div class="stage">
+<section class="slide layout-title" data-slide="1">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>Open port is not always a bug</h2>
+  </header>
+  <div class="slide-body">
+    <div class="title-points"><p>port เปิดคือ exposure ที่ต้องเทียบกับ intended service</p></div>
+  </div>
+  <aside class="speaker-note"><strong>Speaker Focus:</strong> ห้าม scan network จริง ใช้ supplied outputs เท่านั้น และสรุปตามหลักฐานที่มี</aside>
+</section>
+<section class="slide layout-content" data-slide="2">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>Intended audience</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>public, internal, admin-only, partner-only</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="3">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>Service inventory</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>service, protocol, port, owner, expected exposure</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="4">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>TLS evidence</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>certificate validity, hostname, protocol, cipher, redirect</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="5">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>What evidence cannot prove</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>output ที่ให้มาไม่พิสูจน์ทั้งระบบ production</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="6">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>Remediation options</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>reduce exposure, strengthen auth, monitor, verify</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-practice" data-slide="7">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>Lab handoff</h2>
+  </header>
+  <div class="slide-body">
+    <div class="practice-panel"><p>Lab 6: network evidence note</p></div>
+  </div>
+  <aside class="speaker-note"><strong>Activity Handoff:</strong> เปิด `../labs/lab-06-network-evidence-secure-transport.md`</aside>
+</section>
+<section class="slide layout-wrap" data-slide="8">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 09</p>
+    <h2>Exit prompt</h2>
+  </header>
+  <div class="slide-body">
+    <div class="wrap-panel"><p>&quot;remediation นี้ตรวจว่าได้ผลอย่างไร&quot;</p></div>
+  </div>
+  <aside class="speaker-note">Prompt students for individual reflection or exit ticket responses.</aside>
+</section>
+    </div>
+    <footer class="deck-help">
+      <span>Space / arrows: move</span>
+      <span>N: notes</span>
+      <span>P: print/PDF</span>
+      <span>F: fullscreen</span>
+    </footer>
+  </main>
+  <script src="deck.js"></script>
+</body>
+</html>

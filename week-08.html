@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week 08 - Public key, certificate และ key management | NU 305331</title>
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body class="deck-page">
+  <main class="deck" data-week="08" data-total="8">
+    <nav class="deck-topbar" aria-label="Slide controls">
+      <a class="home-link" href="index.html">305331 HTML Slides</a>
+      <span class="deck-title">Week 08: Public key, certificate และ key management</span>
+      <span class="counter"><span id="current-slide">1</span> / 8</span>
+    </nav>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    <div class="stage">
+<section class="slide layout-title" data-slide="1">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Certificate warning means what?</h2>
+  </header>
+  <div class="slide-body">
+    <div class="title-points"><p>certificate error เป็น evidence เฉพาะชนิด ไม่ใช่ข้อสรุปว่าระบบถูก hack</p></div>
+  </div>
+  <aside class="speaker-note"><strong>Speaker Focus:</strong> แยก cryptographic mechanism จาก operational process</aside>
+</section>
+<section class="slide layout-content" data-slide="2">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Public/private key</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>public key ใช้เผยแพร่ private key ต้องปกป้อง</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="3">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Certificate and CA</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>certificate ผูก identity/domain กับ public key ผ่าน trust chain</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="4">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Expiry, revocation, rotation</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>key management เป็น process ไม่ใช่แค่ algorithm</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="5">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Failure modes</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>expired, hostname mismatch, leaked private key ต้องตอบต่างกัน</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-content" data-slide="6">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Decision memo</h2>
+  </header>
+  <div class="slide-body">
+    <div class="idea-card"><p>owner, storage, access, rotation, revocation, verification</p></div>
+  </div>
+  
+</section>
+<section class="slide layout-practice" data-slide="7">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Lab handoff</h2>
+  </header>
+  <div class="slide-body">
+    <div class="practice-panel"><p>Lab 5: key-management decision memo</p></div>
+  </div>
+  <aside class="speaker-note"><strong>Activity Handoff:</strong> เปิด `../labs/lab-05-public-key-certificate-key-management.md`</aside>
+</section>
+<section class="slide layout-wrap" data-slide="8">
+  <header class="slide-header">
+    <p class="eyebrow">NU 305331 / Week 08</p>
+    <h2>Exit prompt</h2>
+  </header>
+  <div class="slide-body">
+    <div class="wrap-panel"><p>&quot;ถ้าสงสัย private key รั่ว ต้องทำอะไรใน 24 ชั่วโมงแรก&quot;</p></div>
+  </div>
+  <aside class="speaker-note">Prompt students for individual reflection or exit ticket responses.</aside>
+</section>
+    </div>
+    <footer class="deck-help">
+      <span>Space / arrows: move</span>
+      <span>N: notes</span>
+      <span>P: print/PDF</span>
+      <span>F: fullscreen</span>
+    </footer>
+  </main>
+  <script src="deck.js"></script>
+</body>
+</html>
