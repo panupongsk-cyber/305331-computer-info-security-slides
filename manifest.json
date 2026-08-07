@@ -9,9 +9,9 @@
   {
     "kind": "chapter",
     "chapter": 2,
-    "title": "Assets, Data Flows, Trust Boundaries, and Threat Thinking",
+    "title": "Data Flows, Trust Boundaries, and Threat Thinking",
     "output": "chapter-02.html",
-    "slide_count": 33
+    "slide_count": 23
   },
   {
     "kind": "chapter",

@@ -3,347 +3,247 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chapter 02 - Assets, Data Flows, Trust Boundaries, and Threat Thinking | NU 305331</title>
+  <title>Chapter 02 - Data Flows, Trust Boundaries, and Threat Thinking | NU 305331</title>
   <link rel="stylesheet" href="deck.css">
 </head>
 <body class="deck-page">
-  <main class="deck" data-chapter="02" data-total="33">
+  <main class="deck" data-chapter="02" data-total="23">
     <nav class="deck-topbar" aria-label="Slide controls">
       <a class="home-link" href="index.html">305331 HTML Slides</a>
-      <span class="deck-title">Chapter 02: Assets, Data Flows, Trust Boundaries, and Threat Thinking</span>
-      <span class="counter"><span id="current-slide">1</span> / 33</span>
+      <span class="deck-title">Chapter 02: Data Flows, Trust Boundaries, and Threat Thinking</span>
+      <span class="counter"><span id="current-slide">1</span> / 23</span>
     </nav>
     <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
     <div class="stage">
 <section class="slide layout-title" data-slide="1">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §0 เปิดสัปดาห์</p>
-    <h2>W2 — อ่านเหตุการณ์ให้เป็นภาษา security</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §0 เปิดบท</p>
+    <h2>บทที่ 2: การไหลของข้อมูล เส้นเขตแดนความเชื่อถือ และการคิดเชิงภัยคุกคาม</h2>
   </header>
   <div class="slide-body">
-    <div class="title-points"><p>Incident Evidence: แยก asset, threat, vulnerability, impact, control จากหลักฐานจริง</p></div>
+    <div class="title-points"><p>305331 ความมั่นคงของคอมพิวเตอร์และสารสนเทศ</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §0 เปิดสัปดาห์<br><br>&quot;สัปดาห์ก่อนเรารู้จักคำศัพท์ครบชุดแล้วในระดับนิยาม สัปดาห์นี้เอาทุกคำมาใช้กับเหตุการณ์จริงหนึ่งเรื่อง — จบคาบนี้ทุกคนต้องอ่าน log แล้วเล่าเป็นภาษา security ได้&quot;</aside>
+  <aside class="speaker-note">&quot;เปิดด้วยชื่อเต็มของบทตรงจากตำรา — <strong>สังเกตว่าชื่อนี้ไม่มีคำว่า &#x27;สินทรัพย์&#x27; แล้ว</strong> เพราะบทที่ 2 ไม่มี section ที่สอนเรื่อง Asset ใหม่โดยตรง เนื้อหา Asset อยู่ในบทที่ 1 ทั้งหมด บทนี้แค่ดึงมาเชื่อมโยงเป็นสะพานเข้าเรื่อง Trust Boundary เท่านั้น&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="2">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §0 เปิดสัปดาห์</p>
-    <h2>คำถามเปิด</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §0 เปิดบท</p>
+    <h2>วัตถุประสงค์การเรียนรู้</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><p>&quot;เห็น log ล็อกอินล้มเหลว 27 ครั้งติดกันในบัญชีเดียว — คุณสรุปอะไรได้บ้าง และอะไรที่ยังสรุปไม่ได้?&quot;</p></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">1️⃣</div><h4>DFD และ Trust Boundary</h4><p>วาดและอธิบายแผนภาพการไหลของข้อมูล ระบุตำแหน่งเส้นเขตแดนความเชื่อถือ (CLO1+CLO2)</p></div><div class="mini-card"><div class="card-icon">2️⃣</div><h4>อนุกรมวิธานภัยคุกคาม</h4><p>จำแนกภัยคุกคามและผู้กระทำตามเกณฑ์ NIST SP 800-30 Rev. 1 (CLO2)</p></div><div class="mini-card"><div class="card-icon">3️⃣</div><h4>CWE/CVE/CVSS vs Risk</h4><p>แยกแยะความรุนแรงทางเทคนิคออกจากระดับความเสี่ยง (CLO2)</p></div><div class="mini-card"><div class="card-icon">4️⃣</div><h4>มาตรการควบคุม</h4><p>จำแนกประเภท Preventive/Detective/Corrective Controls ตาม ISO/IEC 27002:2022 (CLO2)</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §0 เปิดสัปดาห์<br><br>ให้ตอบปากเปล่า 3–4 คน จดกระดานสองคอลัมน์ &quot;สรุปได้/ยังไม่ได้&quot; — &quot;<strong>เส้นแบ่งสองคอลัมน์นี้คือทักษะของทั้งสัปดาห์</strong> เก็บกระดานไว้ ท้ายคาบกลับมาดูว่าคอลัมน์ขยับยังไง&quot;</aside>
+  <aside class="speaker-note">&quot;ทั้ง 4 ข้อนี้คือแผนที่ของบทนี้ — <strong>สังเกตว่าทุกข้อผูกกับ CLO1 หรือ CLO2 เท่านั้น ตรงตาม Topic Map ที่ผู้สอนอนุมัติสำหรับ Block 2 (สัปดาห์ 3-4)</strong> ไม่มีข้อไหนแตะ CLO3 เลย เพราะเรื่องออกแบบมาตรการควบคุมเชิงลึกยังไม่ถึงตาในบทนี้&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="3">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §0 เปิดสัปดาห์</p>
-    <h2>6 หัวข้อของสัปดาห์</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §1 ความสำคัญของหัวข้อนี้และการเชื่อมโยงกับบทที่ 1</p>
+    <h2>จากบทที่ 1: สินทรัพย์เดินทางอยู่ที่ไหน?</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">①</div><h4>Threat &amp; Threat Actor</h4></div><div class="mini-card"><div class="card-icon">②</div><h4>Vulnerability</h4></div><div class="mini-card"><div class="card-icon">③</div><h4>Impact</h4></div><div class="mini-card"><div class="card-icon">④</div><h4>Control</h4></div><div class="mini-card"><div class="card-icon">⑤</div><h4>Risk Statement</h4></div><div class="mini-card"><div class="card-icon">⑥</div><h4>Incident Walkthrough</h4></div></div></div>
+    <div class="idea-card"><p>ในบทที่ 1: สินทรัพย์ (ข้อมูลส่วนบุคคล, รหัสผ่าน, เกรด, ซอร์สโค้ด) + เป้าหมาย CIA Triad → คำถามต่อ: สินทรัพย์เหล่านี้ประมวลผลและจัดเก็บอยู่ที่ใด? ความเสี่ยงต่อ CIA จะเกิดขึ้น ณ จุดใดของระบบ?</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §0 เปิดสัปดาห์<br><br>&quot;ห้าหัวข้อแรกคือเครื่องมือทีละชิ้น หัวข้อที่หกเอาทุกชิ้นมาใช้กับเหตุการณ์เดียวกัน — เหตุการณ์นั้นจะโผล่เป็นระยะตลอดคาบ&quot;</aside>
+  <aside class="speaker-note">&quot;บทที่ 1 สอนให้รู้จัก <strong>Asset</strong> และเป้าหมาย <strong>CIA Triad</strong> แล้ว บทนี้ไม่สอนเรื่อง Asset ซ้ำ — แต่หยิบมาตั้งคำถามต่อว่า <strong>ของมีค่าที่ระบุไปแล้วนั้น มันเดินทางไปที่ไหนในระบบจริง</strong> นี่คือสะพานที่ต่อจากบทที่ 1 ไปสู่หัวข้อใหม่ของบทนี้&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="4">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §1 Threat &amp; Threat Actor</p>
-    <h2>สี่คำที่ต้องแยกให้ขาด</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §1 ความสำคัญของหัวข้อนี้และการเชื่อมโยงกับบทที่ 1</p>
+    <h2>สินทรัพย์เดินทางผ่านระบบ (Data Flow)</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🌩️</div><h4>Threat</h4><p>สถานการณ์ที่มีศักยภาพก่อผลเสีย</p></div><div class="mini-card"><div class="card-icon">⚡</div><h4>Threat event</h4><p>เหตุการณ์ที่เกิดจริง</p></div><div class="mini-card"><div class="card-icon">🎲</div><h4>Threat source</h4><p>สิ่งที่ก่อ (ตั้งใจหรือไม่ก็ได้)</p></div><div class="mini-card"><div class="card-icon">👤</div><h4>Threat actor</h4><p>คน/กลุ่มที่มีเจตนา</p></div></div></div>
+    <div class="idea-card"><div class="flow-chain"><div class="flow-step">จากเบราว์เซอร์นิสิต</div><div class="flow-arrow">→</div><div class="flow-step">เครือข่ายอินเทอร์เน็ต</div><div class="flow-arrow">→</div><div class="flow-step">API Gateway</div><div class="flow-arrow">→</div><div class="flow-step">เซิร์ฟเวอร์ประมวลผล</div><div class="flow-arrow">→</div><div class="flow-step">ฐานข้อมูล</div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §1 Threat & Threat Actor<br><br>&quot;NIST แยกสี่ชั้นนี้ไว้ชัดเจน (SP 800-30) — <strong>threat คือศักยภาพ event คือสิ่งที่เกิด source คือผู้ก่อ actor คือคนที่ตั้งใจ</strong> สี่คำนี้ปนกันเมื่อไหร่ รายงานเพี้ยนทันที&quot;</aside>
+  <aside class="speaker-note">&quot;การวิเคราะห์ความปลอดภัยไม่ได้เริ่มจากการสแกนหาช่องโหว่แบบลอย ๆ — <strong>เริ่มจากเข้าใจสถาปัตยกรรมและเส้นทางข้อมูลก่อน</strong> ตำแหน่งที่ระดับความไว้วางใจเปลี่ยนไปเรียกว่า <strong>เส้นเขตแดนความเชื่อถือ (Trust Boundary)</strong> ซึ่งเป็นจุดที่ Risk ต่อ CIA ของสินทรัพย์จะเกิดขึ้นสูงที่สุด (Shostack, 2014) — นี่คือหัวใจของบทนี้&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="5">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §1 Threat &amp; Threat Actor</p>
-    <h2>Event เดียว ผู้ก่อได้ห้าแบบ</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>นิยาม: เส้นเขตแดนความเชื่อถือ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">💥</div><h4>DoS attack</h4><p>โจมตีจากภายนอก</p></div><div class="mini-card"><div class="card-icon">😈</div><h4>Admin ประสงค์ร้าย</h4><p>คนในเจตนา</p></div><div class="mini-card"><div class="card-icon">📋</div><h4>ความผิดพลาดธุรการ</h4><p>สั่งผิดโดยไม่รู้</p></div><div class="mini-card"><div class="card-icon">🔩</div><h4>Hardware fault</h4><p>อุปกรณ์เสียเอง</p></div><div class="mini-card"><div class="card-icon">🔌</div><h4>ไฟดับ</h4><p>เหตุแวดล้อม</p></div></div></div>
+    <div class="idea-card"><p>เส้นเขตแดนความเชื่อถือ (Trust Boundary) = ตำแหน่งในสถาปัตยกรรมที่ระดับความไว้วางใจ สิทธิ์การเข้าถึง หรือนโยบายการควบคุมเปลี่ยนไป</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §1 Threat & Threat Actor<br><br>&quot;ตัวอย่างจากมาตรฐานตรง ๆ: เซิร์ฟเวอร์ล่มหนึ่งครั้ง — threat event เดียวกัน — มาจาก source ได้อย่างน้อยห้าแบบ <strong>หลักฐานหน้าจอเดียวยังสรุปผู้ก่อไม่ได้ ต้องหาหลักฐานชั้นถัดไป</strong>&quot;</aside>
+  <aside class="speaker-note">&quot;นิยามนี้มาจาก Shostack (2014) Chapter 3 โดยตรง — <strong>จำไว้ 3 คำ: ความไว้วางใจ สิทธิ์ นโยบาย</strong> ถ้าคำใดคำหนึ่งเปลี่ยนไปตรงจุดใดของระบบ นั่นคือ Trust Boundary&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="6">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §1 Threat &amp; Threat Actor</p>
-    <h2>Taxonomy 4 ประเภทของ threat source</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>เปรียบเทียบให้เห็นภาพ: ด่านตรวจคนเข้าเมือง</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🎯</div><h4>Adversarial</h4><p>โจมตีโดยเจตนา</p></div><div class="mini-card"><div class="card-icon">🤦</div><h4>Accidental</h4><p>คนทำพลาด</p></div><div class="mini-card"><div class="card-icon">⚙️</div><h4>Structural</h4><p>ทรัพยากรในองค์กรล้มเหลว</p></div><div class="mini-card"><div class="card-icon">🌊</div><h4>Environmental</h4><p>ภัยพิบัติ/เหตุนอกการควบคุม</p></div></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🌆</div><h4>พื้นที่ภายนอก (Untrusted Zone)</h4><p>ถนนสาธารณะหน้าคอนโด ใครก็เดินผ่านไปมาได้โดยไม่มีใครควบคุมสิทธิ์</p></div><div class="mini-card"><div class="card-icon">🛂</div><h4>เส้นเขตแดน (Trust Boundary)</h4><p>ประตูแลกบัตรหรือป้อมยาม จุดตั้งระบบตรวจสอบสิทธิ์</p></div><div class="mini-card"><div class="card-icon">🏠</div><h4>พื้นที่ภายใน (Trusted Zone)</h4><p>โซนห้องพักส่วนบุคคลที่มีสิทธิ์สูง ต้องใช้คีย์การ์ดเฉพาะผู้พักอาศัย</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §1 Threat & Threat Actor<br><br>&quot;SP 800-30 จัดสี่กลุ่ม — สังเกตว่า<strong>มีแค่กลุ่มเดียวที่มีผู้ร้ายจริง อีกสามกลุ่มไม่มีเจตนาเลยแต่ทำระบบพังได้เท่ากัน</strong> นี่คือเหตุผลที่สัปดาห์ก่อนย้ำว่า Security ≠ การไล่จับ hacker&quot;</aside>
+  <aside class="speaker-note">&quot;Trust Boundary เปรียบเสมือน <strong>ด่านตรวจคนเข้าเมือง</strong> หรือ <strong>ป้อมยามหน้าประตูคอนโดมิเนียม</strong> — สามโซนนี้คือโครงที่ใช้ได้กับทุกระบบซอฟต์แวร์ ไม่ใช่แค่ตัวอย่างคอนโดเท่านั้น&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="7">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §1 Threat &amp; Threat Actor</p>
-    <h2>อ่านฝั่งผู้โจมตี (adversarial)</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>กฎทองคำทางความปลอดภัย</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🧭</div><h4>Intent</h4><p>อยากได้อะไร</p></div><div class="mini-card"><div class="card-icon">💪</div><h4>Capability</h4><p>ทำได้แค่ไหน</p></div><div class="mini-card"><div class="card-icon">🎯</div><h4>Targeting</h4><p>เล็งเราแค่ไหน</p></div></div></div>
+    <div class="idea-card"><p>&quot;ข้อมูลทุกอย่างที่เดินทางข้ามผ่าน Trust Boundary เข้ามา ต้องถูกปฏิบัติในฐานะ Untrusted Input เสมอ จนกว่าจะผ่านการตรวจสอบสิทธิ์ครบถ้วน&quot;</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §1 Threat & Threat Actor<br><br>&quot;สามปัจจัยนี้คือวิธีที่มาตรฐานให้ประเมินโอกาสของ threat แบบมีผู้กระทำ — โยงกลับ taxonomy ผู้โจมตีของสัปดาห์ก่อน: nation-state เก่งสุดแต่แทบไม่เล็งระบบส่งงานมหาวิทยาลัย นิสิตที่อยากแก้เกรดตัวเอง capability ต่ำแต่ <strong>targeting ตรงเป้าที่สุด</strong> — และเมื่อเราใส่ control ผู้โจมตีก็ปรับตัว (threat shifting) เกมนี้ไม่หยุดนิ่ง&quot;</aside>
+  <aside class="speaker-note">&quot;นี่คือกฎที่สำคัญที่สุดของบทนี้ (OWASP Top 10:2021, A03:2021-Injection) — <strong>ไม่ว่าข้อมูลจะดูน่าเชื่อแค่ไหน ถ้าข้ามเส้นเขตแดนมา ต้องสงสัยไว้ก่อนเสมอ</strong> จนกว่าจะพิสูจน์ตรงข้าม&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="8">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §1 Threat &amp; Threat Actor</p>
-    <h2>STRIDE — ป้ายหมวดของ threat</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>ตัวอย่างจริง: Trust Boundary ในสถาปัตยกรรม</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">S</div><h4>Spoofing</h4><p>ปลอมตัวตน</p></div><div class="mini-card"><div class="card-icon">T</div><h4>Tampering</h4><p>แก้ข้อมูลมิชอบ</p></div><div class="mini-card"><div class="card-icon">R</div><h4>Repudiation</h4><p>ปฏิเสธการกระทำ</p></div><div class="mini-card"><div class="card-icon">I</div><h4>Info Disclosure</h4><p>ข้อมูลรั่ว</p></div><div class="mini-card"><div class="card-icon">D</div><h4>Denial of Service</h4><p>บริการล่ม</p></div><div class="mini-card"><div class="card-icon">E</div><h4>Elevation of Privilege</h4><p>ยกระดับสิทธิ์</p></div></div></div>
+    <div class="idea-card"><figure class="slide-image"><img src="images/trust_boundary_dfd.jpg" alt="images/trust_boundary_dfd.jpg"><figcaption>แผนภาพจำลองแสดงการเดินทางของข้อมูลและจุดเปลี่ยนสิทธิ์ Trust Boundary — โซนภายในยังคงต้องมีการควบคุมและตรวจสอบสิทธิ์อย่างรัดกุม</figcaption></figure></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §1 Threat & Threat Actor<br><br>&quot;กรอบของ Microsoft ใช้ตั้งคำถามว่าระบบโดนอะไรได้บ้าง — สัปดาห์นี้ใช้แค่ระดับ<strong>ติดป้ายหมวดให้เหตุการณ์ที่อ่านเจอ</strong> ตัวเต็มรอ W4 ที่เราจะทำ threat modeling ทั้งระบบ&quot;</aside>
+  <aside class="speaker-note">&quot;ภาพนี้เป็นภาพประกอบเพื่อการเรียนรู้เชิงมโนทัศน์ — <strong>สังเกตว่าโซน &#x27;ภายใน&#x27; ก็ยังมีเส้นเขตแดนตรวจสอบสิทธิ์ของตัวเองอีกชั้น ไม่ใช่ปลอดภัยอัตโนมัติ</strong>&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="9">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §2 Vulnerability</p>
-    <h2>นิยาม: จุดอ่อนฝั่งเรา</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>สามสถานการณ์ตัวอย่างในระบบจริง</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>NIST SP 800-30</h3><ul><li>จุดอ่อนในระบบ</li><li>กระบวนการ</li><li>internal control</li><li>การ implement</li></ul></section><section><h3>ISO/IEC 27000</h3><ul><li>จุดอ่อนของ asset</li><li>จุดอ่อนของ control</li></ul></section></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🎓</div><h4>Student Project Portal</h4><p>Client Browser ↔ API Gateway (Untrusted Input) และ App Server ↔ Database (ป้องกัน IDOR)</p></div><div class="mini-card"><div class="card-icon">💳</div><h4>ระบบชำระเงินออนไลน์</h4><p>เว็บขายของ ↔ API ธนาคาร ใช้ HMAC Signature และ mTLS ยืนยันคำขอตัดเงิน</p></div><div class="mini-card"><div class="card-icon">📱</div><h4>Mobile Banking</h4><p>แอปธนาคาร ↔ Secure Enclave ฮาร์ดแวร์ ถามแค่ YES/NO พร้อม Signature ไม่อ่านลายนิ้วมือตรง</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §2 Vulnerability<br><br>&quot;สองมาตรฐานชี้ที่เดียวกัน: จุดอ่อน<strong>ฝั่งเรา</strong> — กฎง่ายตอนกรอก worksheet: <strong>ถ้าแก้ได้ด้วยการเปลี่ยนระบบหรือกระบวนการของเราเอง มันคือ vulnerability ถ้าห้ามไม่ให้เกิดไม่ได้ ทำได้แค่รับมือ มันคือ threat</strong>&quot;</aside>
+  <aside class="speaker-note">&quot;สามตัวอย่างนี้แสดงว่า Trust Boundary ไม่ใช่แค่แนวคิดนามธรรม — <strong>ทุกระบบที่ใช้งานจริงในชีวิตประจำวันมีจุดนี้อยู่จริง</strong> และมาตรการที่ใช้ ณ จุดนั้นแตกต่างกันตามความเสี่ยง&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="10">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §2 Vulnerability</p>
-    <h2>ช่องโหว่ไม่ได้อยู่แค่ในโค้ด</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>กลไกควบคุม 3 ขั้นตอน ณ จุด Trust Boundary</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">💻</div><h4>โค้ด/ระบบ</h4><p>บั๊ก, config ผิด</p></div><div class="mini-card"><div class="card-icon">🏛️</div><h4>Governance</h4><p>ไม่มี risk strategy</p></div><div class="mini-card"><div class="card-icon">🔗</div><h4>Supply chain</h4><p>พึ่งพาเจ้าเดียว</p></div><div class="mini-card"><div class="card-icon">📋</div><h4>กระบวนการ</h4><p>process หละหลวม</p></div></div></div>
+    <div class="idea-card"><div class="flow-chain"><div class="flow-step">Validation: ตรวจความถูกต้องของข้อมูล</div><div class="flow-arrow">→</div><div class="flow-step">Authentication: ยืนยันตัวตนผู้ส่ง</div><div class="flow-arrow">→</div><div class="flow-step">Authorization: ตรวจสิทธิ์เข้าถึงสินทรัพย์</div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §2 Vulnerability<br><br>&quot;มาตรฐานเขียนตรง ๆ ว่าช่องโหว่อยู่ในโครงสร้างองค์กร ความสัมพันธ์ภายนอก และกระบวนการได้ทั้งหมด — และช่องโหว่ส่วนใหญ่คือ <strong>control ที่ยังไม่ถูกใช้ หรือใช้แล้วแต่ยังอ่อน</strong> จำประโยคนี้ไว้ เดี๋ยวหัวข้อ Control จะวนกลับมา&quot;</aside>
+  <aside class="speaker-note">&quot;เมื่อข้อมูลข้ามผ่าน Trust Boundary ต้องแยก 3 ขั้นตอนนี้ให้ชัด (OWASP Top 10:2021; NIST SP 800-53 Rev. 5, Control AC-3) — <strong>Validation ตรวจรูปแบบ, Authentication ตรวจว่าใครส่งมา, Authorization ตรวจว่ามีสิทธิ์ทำสิ่งนั้นจริงไหม</strong> สามขั้นนี้แยกจากกันเสมอ ห้ามข้ามขั้นใดขั้นหนึ่ง&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="11">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §2 Vulnerability</p>
-    <h2>จุดกำเนิดของช่องโหว่</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §2 การไหลของข้อมูลและเส้นเขตแดนความเชื่อถือ</p>
+    <h2>ข้อควรระวัง: ภายในไม่ได้แปลว่าปลอดภัย</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">📐</div><h4>Design flaw</h4><p>ออกแบบผิดตั้งแต่แรก</p></div><div class="mini-card"><div class="card-icon">🐛</div><h4>Implementation bug</h4><p>design ถูก โค้ดพลาด</p></div><div class="mini-card"><div class="card-icon">🔧</div><h4>Misconfiguration</h4><p>ระบบดี ตั้งค่าผิด</p></div><div class="mini-card"><div class="card-icon">🕳️</div><h4>Missing control</h4><p>ควรมีแต่ไม่มี</p></div></div></div>
+    <div class="idea-card"><p>การที่โซนฐานข้อมูลตั้งอยู่ภายในเครือข่ายองค์กร ไม่ได้หมายความว่าเป็นโซนที่ปลอดภัย 100% โดยไม่ต้องตรวจสอบสิทธิ์ — ยังต้องใช้ Zero Trust และ Least Privilege</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §2 Vulnerability<br><br>&quot;การจำแนกนี้กำหนดว่า<strong>ใครแก้และแก้ที่ไหน</strong>: design flaw กลับไปที่สถาปนิก, bug แก้ที่ code review, config แก้ที่ ops, missing control แก้ที่ requirement — CWE ของ MITRE จัด view แบบนี้จริงในอุตสาหกรรม&quot;</aside>
+  <aside class="speaker-note">&quot;หลายคนเข้าใจผิดว่าถ้าอยู่ &#x27;ในเครือข่ายบริษัท&#x27; แล้วปลอดภัยอัตโนมัติ — <strong>ไม่จริง</strong> ต้องใช้หลัก Zero Trust (ตรวจสอบทุกครั้ง ไม่เชื่อโดยอัตโนมัติ) และ Least Privilege (ให้สิทธิ์เท่าที่จำเป็นเท่านั้น) แม้แต่ในโซนภายในเอง&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="12">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §2 Vulnerability</p>
-    <h2>CWE → CVE → CVSS</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §3 ภัยคุกคามและอนุกรมวิธานผู้กระทำ</p>
+    <h2>สี่คำที่ต้องแยกให้ออก</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="flow-chain"><div class="flow-step">CWE ประเภทของ weakness</div><div class="flow-arrow">→</div><div class="flow-step">CVE ช่องโหว่ตัวที่พบจริง</div><div class="flow-arrow">→</div><div class="flow-step">CVSS คะแนนความรุนแรง</div></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">Threat</div><h4>ภัยคุกคาม</h4><p>สถานการณ์ที่มีศักยภาพก่อผลกระทบเชิงลบต่อระบบ สินทรัพย์ หรือองค์กร</p></div><div class="mini-card"><div class="card-icon">Threat Source</div><h4>แหล่งที่มา</h4><p>จุดกำเนิด เจตนา วิธีการ หรือเงื่อนไขต้นเหตุ</p></div><div class="mini-card"><div class="card-icon">Threat Actor</div><h4>ผู้กระทำ</h4><p>บุคคล กลุ่ม หรือองค์กรผู้มุ่งร้ายที่มีเจตนา</p></div><div class="mini-card"><div class="card-icon">Threat Event</div><h4>กิจกรรม</h4><p>เหตุการณ์เฉพาะเจาะจงที่เกิดขึ้นจริง</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §2 Vulnerability<br><br>&quot;สามชั้นที่คนสับสน: โรคในตำรา ผู้ป่วยรายหนึ่ง และอาการหนักแค่ไหน — จุดที่ต้องจำที่สุด: <strong>CVSS วัด severity ไม่ใช่ risk</strong> spec ของ FIRST เขียนเองว่าผลกระทบเชิงธุรกิจอยู่นอกขอบเขต ช่องโหว่ 9.8 ในระบบทดลองที่ไม่ต่อเน็ต อาจเร่งด่วนน้อยกว่า 6.5 ในระบบเก็บเกรดจริง&quot;</aside>
+  <aside class="speaker-note">&quot;ตามมาตรฐาน NIST SP 800-30 Rev. 1 §3.1 — <strong>สี่คำนี้คนละความหมายกัน</strong> ตัวอย่างในระบบ Student Project Portal: Threat คือความเสี่ยงที่ไฟล์จะถูกเข้าถึงผิดสิทธิ์ Threat Source คือแฮกเกอร์หรือฮาร์ดดิสก์พัง Threat Actor คือคนที่มีเจตนาร้ายเท่านั้น Threat Event คือคำขอ <code>GET /submissions/1099</code> ข้ามสิทธิ์&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="13">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §3 Impact</p>
-    <h2>Impact = ขนาดความเสียหายเมื่อ CIA แตก</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §3 ภัยคุกคามและอนุกรมวิธานผู้กระทำ</p>
+    <h2>อนุกรมวิธานแหล่งที่มาภัยคุกคาม 4 กลุ่ม</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">👁️</div><h4>Disclosure</h4><p>Confidentiality แตก</p></div><div class="mini-card"><div class="card-icon">✏️</div><h4>Modification/Destruction</h4><p>Integrity แตก</p></div><div class="mini-card"><div class="card-icon">⛔</div><h4>Loss of availability</h4><p>Availability แตก</p></div></div></div>
+    <div class="idea-card"><figure class="slide-image"><img src="images/threat_actor_taxonomy.jpg" alt="images/threat_actor_taxonomy.jpg"><figcaption>แผนภาพอนุกรมวิธานแหล่งที่มาภัยคุกคาม 4 กลุ่มตามมาตรฐาน NIST SP 800-30 Rev. 1 Appendix D Table D-2</figcaption></figure></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §3 Impact<br><br>&quot;นิยามมาตรฐานคือ <strong>magnitude of harm</strong> — ขนาดของความเสียหาย — จากการที่มุมใดมุมหนึ่งของ CIA แตก สามเหลี่ยมที่เรียนสัปดาห์ก่อนกลายเป็นเครื่องวัดของสัปดาห์นี้&quot;</aside>
+  <aside class="speaker-note">&quot;Table D-2 คือตารางอนุกรมวิธาน — <strong>Table D-3 ถึง D-5 ไม่ใช่กลุ่มเพิ่มเติม แต่เป็นสเกลประเมิน Capability/Intent/Targeting ของฝ่าย Adversarial เท่านั้น</strong> อย่าสับสนสองสิ่งนี้&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="14">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §3 Impact</p>
-    <h2>เสียหายต่อใคร — ไล่เป็นชั้น</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §3 ภัยคุกคามและอนุกรมวิธานผู้กระทำ</p>
+    <h2>รายละเอียด 4 กลุ่มแหล่งที่มาภัยคุกคาม</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="flow-chain"><div class="flow-step">เจ้าของ asset โดยตรง</div><div class="flow-arrow">→</div><div class="flow-step">ผู้พึ่งพากระบวนการ</div><div class="flow-arrow">→</div><div class="flow-step">องค์กรและชื่อเสียง</div></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">😈</div><h4>Adversarial</h4><p>มนุษย์/องค์กรมีเจตนาโจมตี — แฮกเกอร์ อาชญากรไซเบอร์ Insider Threat หรือ State Actors</p></div><div class="mini-card"><div class="card-icon">🤦</div><h4>Accidental</h4><p>ผิดพลาดจากมนุษย์โดยไม่มีเจตนา — พิมพ์คำสั่งผิด ตั้งค่าไฟร์วอลล์ผิด</p></div><div class="mini-card"><div class="card-icon">⚙️</div><h4>Structural</h4><p>ความล้มเหลวของอุปกรณ์/ซอฟต์แวร์ — ฮาร์ดดิสก์เสีย Software Bug ไฟดับ</p></div><div class="mini-card"><div class="card-icon">🌪️</div><h4>Environmental</h4><p>ภัยธรรมชาติ/เหตุการณ์ภายนอกที่ควบคุมไม่ได้ — อัคคีภัย น้ำท่วม แผ่นดินไหว</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §3 Impact<br><br>&quot;harm ไม่หยุดที่ระบบ: นิสิตเจ้าของงาน → อาจารย์ที่ต้องตัดเกรด → ความเชื่อมั่นต่อระบบทั้งวิชา — มาตรฐานนับ reputation เป็น asset ที่เสียหายได้จริง ตรงกับ taxonomy 6 หมวดที่เรียนไปแล้ว&quot;</aside>
+  <aside class="speaker-note">&quot;จุดสำคัญที่สุดของสไลด์นี้: <strong>เจตนาคือตัวแยกกลุ่ม</strong> มนุษย์ที่ตั้งใจโจมตีอยู่กลุ่ม Adversarial มนุษย์ที่พลาดโดยไม่ตั้งใจอยู่กลุ่ม Accidental ไม่ใช่กลุ่มเดียวกัน (NIST SP 800-30 Rev. 1, Table D-2)&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="15">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §3 Impact</p>
-    <h2>ประเมินอย่างมีที่มา</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §3 ภัยคุกคามและอนุกรมวิธานผู้กระทำ</p>
+    <h2>ฝึกจำแนก: 4 เหตุการณ์ 4 กลุ่ม</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">⚙️</div><h4>กระบวนการ</h4><p>ประเมินด้วยวิธีไหน</p></div><div class="mini-card"><div class="card-icon">🧩</div><h4>สมมติฐาน</h4><p>เชื่ออะไรอยู่</p></div><div class="mini-card"><div class="card-icon">📄</div><h4>แหล่งข้อมูล</h4><p>รู้จากอะไร</p></div><div class="mini-card"><div class="card-icon">💬</div><h4>เหตุผล</h4><p>ทำไมจึงสรุปแบบนี้</p></div></div></div>
+    <div class="idea-card"><p class="bullet-intro">สถานการณ์:</p><ul><li>(ก) แฮกเกอร์ส่ง SQL Injection</li><li>(ข) วิศวกรพิมพ์คำสั่งลบฐานข้อมูลผิด</li><li>(ค) ฮาร์ดดิสก์เซิร์ฟเวอร์พังเพราะเสื่อมสภาพ</li><li>(ง) เกิดอัคคีภัยในห้องเซิร์ฟเวอร์</li></ul></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §3 Impact<br><br>&quot;SP 800-30 บังคับสี่อย่างนี้ทุกครั้งที่ประเมิน impact — แปลว่า<strong>ห้ามเขียนว่า &#x27;ร้ายแรงมาก&#x27; โดยไม่มีสามบรรทัดต่อท้ายว่าวัดจากอะไร สมมติอะไร รู้แค่ไหน</strong> และจำไว้ว่าโอกาส &#x27;เกิด&#x27; กับโอกาส &#x27;เจ็บ&#x27; เป็นคนละความน่าจะเป็น — control ที่ดีลดตัวหลังแม้กันตัวแรกไม่ได้ ส่วนระดับ FIPS 199 ของระบบจากสัปดาห์ก่อนคือเพดานของเหตุการณ์เดี่ยวในระบบนั้น&quot;</aside>
+  <aside class="speaker-note">&quot;ให้ผู้เรียนจำแนกเดี่ยว 2 นาทีก่อนเฉลย — <strong>เฉลย: (ก) Adversarial (ข) Accidental (ค) Structural (ง) Environmental</strong> ตรงกับคำถามทบทวนข้อ 2 ของตำราพอดี&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="16">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §4 Control — ทวนเพื่อใช้จริง</p>
-    <h2>Control สามจังหวะเวลา</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §4 อนุกรมวิธานช่องโหว่ มาตรการควบคุม และความรุนแรงเทียบความเสี่ยง</p>
+    <h2>ช่องโหว่และสามระบบมาตรฐาน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🛡️</div><h4>Preventive</h4><p>ทำงานก่อน threat เกิด</p></div><div class="mini-card"><div class="card-icon">🔍</div><h4>Detective</h4><p>ทำงานขณะเกิด</p></div><div class="mini-card"><div class="card-icon">🔧</div><h4>Corrective</h4><p>ทำงานหลังเกิด</p></div></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🕳️</div><h4>Vulnerability (ช่องโหว่)</h4><p>จุดอ่อนหรือข้อผิดพลาดที่ใช้เป็นช่องทางข้ามผ่านความคุ้มครองได้</p></div><div class="mini-card"><div class="card-icon">📋</div><h4>CWE</h4><p>คลังจุดอ่อนทางเทคนิค ดูแลโดย MITRE</p></div><div class="mini-card"><div class="card-icon">🔑</div><h4>CVE</h4><p>รหัสช่องโหว่เฉพาะที่พบจริง</p></div><div class="mini-card"><div class="card-icon">📈</div><h4>CVSS</h4><p>คะแนนความรุนแรง ดูแลโดย FIRST</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §4 Control — ทวนเพื่อใช้จริง<br><br>&quot;สามค่านี้คือ attribute &#x27;Control type&#x27; ของ ISO/IEC 27002:2022 ตรง ๆ — ส่วน deterrent, compensating และแกน administrative/technical/physical ที่อยู่ในตำรา เป็น taxonomy วิชาชีพที่ใช้กันแพร่หลาย <strong>เวลาอ้างในรายงานให้แยกชั้นที่มา อย่าเหมาว่า &#x27;ตามมาตรฐาน&#x27; ทั้งตาราง</strong>&quot;</aside>
+  <aside class="speaker-note">&quot;สามระบบนี้ดูแลโดยองค์กรคนละกลุ่ม (ISO/IEC 27000:2018, Clause 3.77) — <strong>CWE, CVE, CVSS ไม่ใช่ระบบเดียวกัน</strong> แต่ทำงานเสริมกัน&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="17">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §4 Control — ทวนเพื่อใช้จริง</p>
-    <h2>Control กับ Vulnerability คือเหรียญเดียวกัน</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §4 อนุกรมวิธานช่องโหว่ มาตรการควบคุม และความรุนแรงเทียบความเสี่ยง</p>
+    <h2>เปรียบเทียบให้เข้าใจง่าย</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>Control ขาดหรืออ่อน</h3><ul><li>กลายเป็นช่องโหว่</li><li>โอกาสเจ็บสูงขึ้น</li></ul></section><section><h3>Control มีและทำงาน</h3><ul><li>ช่องโหว่ปิด</li><li>โอกาสเจ็บลดลง</li></ul></section></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🩺</div><h4>CWE = ชื่อโรค/กลุ่มอาการ</h4><p>เช่น CWE-89 SQL Injection</p></div><div class="mini-card"><div class="card-icon">🧑‍⚕️</div><h4>CVE = รหัสผู้ป่วย/เคสจริง</h4><p>เช่น CVE-2021-44228 Log4Shell</p></div><div class="mini-card"><div class="card-icon">📊</div><h4>CVSS = ดัชนีความรุนแรงตามตำราแพทย์</h4><p>คะแนน 0.0–10.0</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §4 Control — ทวนเพื่อใช้จริง<br><br>&quot;วนกลับมาที่ประโยคจากหัวข้อ Vulnerability: ช่องโหว่ส่วนใหญ่คือ control ที่ขาดหรืออ่อน — <strong>มองเหตุการณ์ทุกครั้งให้จบด้วยคำถามว่า control อะไรที่ถ้ามีอยู่ เรื่องนี้จะเปลี่ยน</strong> นั่นคือช่องที่ 5 ของ worksheet ที่กำลังจะเจอ&quot;</aside>
+  <aside class="speaker-note">&quot;จำง่าย ๆ ด้วย analogy ทางการแพทย์นี้ — <strong>CWE คือกลุ่มอาการ, CVE คือเคสผู้ป่วยจริงที่เจอ, CVSS คือคะแนนความรุนแรงของเคสนั้น</strong>&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="18">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §5 Risk Statement</p>
-    <h2>โครงประโยคความเสี่ยง</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §4 อนุกรมวิธานช่องโหว่ มาตรการควบคุม และความรุนแรงเทียบความเสี่ยง</p>
+    <h2>ความรุนแรงทางเทคนิค ≠ ระดับความเสี่ยง</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="flow-chain"><div class="flow-step">Threat source</div><div class="flow-arrow">→</div><div class="flow-step">Threat event</div><div class="flow-arrow">→</div><div class="flow-step">Vulnerability</div><div class="flow-arrow">→</div><div class="flow-step">Impact</div><div class="flow-arrow">→</div><div class="flow-step">Asset ใน scope</div></div></div>
+    <div class="idea-card"><figure class="slide-image"><img src="images/severity_vs_risk_controls.jpg" alt="images/severity_vs_risk_controls.jpg"><figcaption>เปรียบเทียบ CVSS Technical Severity กับ Business Risk และมาตรการควบคุม 3 ประเภท</figcaption></figure></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §5 Risk Statement<br><br>&quot;ห้ากล่องนี้คือ risk model ของ SP 800-30 เรียงเป็นประโยคเดียว: <em>ใคร/อะไร</em> อาจ <em>ทำอะไร</em> เพราะ <em>ช่องโหว่ไหน</em> ทำให้เกิด <em>ผลเสียอะไร</em> ต่อ <em>asset ไหนในขอบเขตไหน</em> — <strong>ประโยคเดียวที่บังคับให้เราตอบครบทุกองค์ประกอบก่อนสรุป</strong>&quot;</aside>
+  <aside class="speaker-note">&quot;CVSS Base Score บอกแค่ <strong>ความรุนแรงทางเทคนิคโดยเนื้อแท้</strong> เท่านั้น ไม่ใช่ระดับความเสี่ยงทางธุรกิจ (FIRST CVSS v4.0 Specification, Section 1) — Risk ต้องคำนวณ Likelihood × Impact ร่วมด้วย (NIST SP 800-30 Rev. 1, Section 3.3)&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="19">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §5 Risk Statement</p>
-    <h2>ประโยคที่ยังไม่ดี ปรับอย่างไร</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §4 อนุกรมวิธานช่องโหว่ มาตรการควบคุม และความรุนแรงเทียบความเสี่ยง</p>
+    <h2>ตัวอย่าง: คะแนนสูงแต่ความเสี่ยงต่ำ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>ยังไม่ดี</h3><ul><li>ระบบเสี่ยงเพราะไม่ปลอดภัย</li><li>password คือ threat</li><li>เจอ 403 แปลว่าปลอดภัย</li></ul></section><section><h3>ปรับแล้ว</h3><ul><li>ระบุ threat+vulnerability+impact ครบ</li><li>password คือ asset — threat คือการเดา/ขโมย</li><li>เขียน limitation ของหลักฐาน</li></ul></section></div></div>
+    <div class="idea-card"><p>ช่องโหว่ RCE คะแนน CVSS 9.8/10 (Critical) — แต่อยู่บนเซิร์ฟเวอร์ทดลองที่ตัดขาดจากเครือข่ายภายนอก ไม่มีข้อมูลสำคัญ เข้าถึงไม่ได้ → Business Risk ต่ำมาก</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §5 Risk Statement<br><br>&quot;สามคู่นี้คือข้อผิดพลาดที่พบบ่อยที่สุดในรายงานจริง — ฝั่งซ้ายไม่ใช่ผิดไวยากรณ์ แต่<strong>ผิดเพราะปนคำหรือสรุปเกินหลักฐาน</strong> ซึ่ง worksheet บ่ายนี้ถูกออกแบบมาดักทั้งสามแบบ&quot;</aside>
+  <aside class="speaker-note">&quot;นี่คือตัวอย่างที่แสดงให้เห็นชัดว่า <strong>คะแนนความรุนแรงทางเทคนิคสูงไม่ได้แปลว่าความเสี่ยงทางธุรกิจสูงเสมอไป</strong> ต้องดู Likelihood และ Impact จริงในบริบทประกอบด้วยทุกครั้ง&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="20">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §6 Incident Walkthrough</p>
-    <h2>เหตุการณ์ &quot;งานที่ไม่ได้ส่ง&quot;</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §4 อนุกรมวิธานช่องโหว่ มาตรการควบคุม และความรุนแรงเทียบความเสี่ยง</p>
+    <h2>มาตรการควบคุม 3 ประเภทตามลักษณะการทำงาน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><figure class="slide-image"><img src="../images/w02-incident-timeline.svg" alt="images/w02-incident-timeline.svg"><figcaption>หลักฐานสังเคราะห์ทั้งหมด — ไม่มีข้อมูลจริง</figcaption></figure></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">🛡️</div><h4>Preventive</h4><p>ยับยั้งไม่ให้เหตุการณ์เกิดขึ้น — Server-side Authorization Check, MFA</p></div><div class="mini-card"><div class="card-icon">🔍</div><h4>Detective</h4><p>เฝ้าระวังและตรวจพบเมื่อเกิดขึ้น — Audit Log, SIEM Alert</p></div><div class="mini-card"><div class="card-icon">🔧</div><h4>Corrective</h4><p>หยุดยั้งความเสียหายและฟื้นฟู — Revoke Token, Data Restore</p></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §6 Incident Walkthrough<br><br>เดินอ่าน timeline ทีละเหตุการณ์บนจอ ชี้จุดผิดปกติ (27 ครั้ง/4 นาที) และจุดที่ log <em>ไม่บอก</em> &quot;<strong>เหตุการณ์นี้คือ threat scenario ตามนิยามมาตรฐาน: ชุดเหตุการณ์เรียงตามเวลา ที่เล่าเป็นเรื่องได้</strong> — และเรื่องนี้จะอยู่กับเราทั้งบ่าย&quot;</aside>
+  <aside class="speaker-note">&quot;สามประเภทนี้ตาม ISO/IEC 27002:2022 และ NIST SP 800-53 Rev. 5 — <strong>แต่ละประเภททำงานคนละจังหวะของเหตุการณ์</strong>: ก่อนเกิด (Preventive), ระหว่าง/หลังตรวจพบ (Detective), หลังเกิดแล้ว (Corrective)&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="21">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §6 Incident Walkthrough</p>
-    <h2>Worksheet 7 ช่อง</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §4 อนุกรมวิธานช่องโหว่ มาตรการควบคุม และความรุนแรงเทียบความเสี่ยง</p>
+    <h2>ฝึกออกแบบ: ป้องกันการลักลอบแก้ไขคะแนน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="flow-chain"><div class="flow-step">Asset</div><div class="flow-arrow">→</div><div class="flow-step">Threat source/event</div><div class="flow-arrow">→</div><div class="flow-step">Vulnerability</div><div class="flow-arrow">→</div><div class="flow-step">Impact</div><div class="flow-arrow">→</div><div class="flow-step">Control</div><div class="flow-arrow">→</div><div class="flow-step">Risk statement</div><div class="flow-arrow">→</div><div class="flow-step">Limitation</div></div></div>
+    <div class="idea-card"><p>สถานการณ์: ต้องออกแบบมาตรการควบคุมครบ 3 ประเภทสำหรับป้องกันการลักลอบแก้ไขคะแนนประเมินใน Student Project Portal</p></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §6 Incident Walkthrough<br><br>&quot;ลำดับช่องบังคับการคิดทีละชั้น เริ่มจาก asset เสมอตามหลักสัปดาห์ก่อน — ช่องสุดท้ายสำคัญไม่แพ้ช่องแรก: <strong>limitation ที่เขียนชัดคือสิ่งที่ทำให้รายงานถูกเชื่อ ไม่ใช่จุดอ่อนของงาน</strong>&quot;</aside>
+  <aside class="speaker-note">&quot;ให้ผู้เรียนออกแบบเดี่ยวก่อนเฉลย — <strong>เฉลยตัวอย่าง</strong>: Preventive = Server-side Authorization Check ปฏิเสธคำขอด้วย HTTP 403, Detective = Audit Log ทุกคำขอแก้ไขคะแนน + แจ้งเตือนความผิดปกติ, Corrective = ยกเลิก Token ทันทีและกู้คืนคะแนนจาก Backup&quot;</aside>
 </section>
-<section class="slide layout-content" data-slide="22">
+<section class="slide layout-wrap" data-slide="22">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §6 Incident Walkthrough</p>
-    <h2>โจทย์กลุ่ม</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §5 สรุปสาระสำคัญ</p>
+    <h2>สรุปสาระสำคัญของบท</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><p>กลุ่ม 3–4 คน: อ่านหลักฐานจากใบงาน แล้วกรอกช่อง 1–5 ให้ครบ — ทุก claim ต้องชี้ได้ว่ามาจากหลักฐานบรรทัดไหน</p></div>
+    <div class="wrap-panel"><ul><li>สินทรัพย์และ CIA จากบทที่ 1 เดินทางผ่านระบบ (Data Flow) และเกิดความเสี่ยงสูงสุด ณ Trust Boundary</li><li>DFD + Trust Boundary ชี้จุดที่ต้องใช้ Validation/Authentication/Authorization</li><li>แหล่งที่มาภัยคุกคาม 4 กลุ่มตาม NIST SP 800-30: Adversarial/Accidental/Structural/Environmental</li><li>CWE/CVE/CVSS คนละระบบ Severity ≠ Risk (Likelihood × Impact)</li><li>มาตรการควบคุม 3 ประเภท: Preventive/Detective/Corrective</li></ul></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §6 Incident Walkthrough<br><br>อธิบายกติกา: ไม่มีคำตอบเดียวที่ถูก — เกณฑ์คือ &quot;อ้างหลักฐานได้&quot; ไม่ใช่ &quot;ตรงเฉลย&quot;; เดินฟังการให้เหตุผลระหว่างกลุ่มทำงาน เก็บคำตอบที่ต่างกันมา debrief</aside>
+  <aside class="speaker-note">&quot;จุดร่วมของบทนี้คือคำเดียว: <strong>Trust Boundary</strong> — ทุกหัวข้อในบทวันนี้ วนกลับมาที่จุดเปลี่ยนสิทธิ์นี้เสมอ ไม่ว่าจะเป็นการวิเคราะห์ภัยคุกคาม การจัดประเภทช่องโหว่ หรือการออกแบบมาตรการควบคุม&quot;</aside>
 </section>
 <section class="slide layout-content" data-slide="23">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §6 Incident Walkthrough</p>
-    <h2>คำถามตรวจสามแบบ</h2>
+    <p class="eyebrow">NU 305331 / Chapter 02 / §6 คำถามทบทวน</p>
+    <h2>คำถามทบทวน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">✂️</div><h4>ตัดหลักฐาน</h4><p>&quot;ตัดบรรทัดนี้ ข้อสรุปไหนหาย&quot;</p></div><div class="mini-card"><div class="card-icon">🔄</div><h4>สลับ source</h4><p>&quot;ถ้าเป็นไฟดับแทน ช่องไหนเปลี่ยน&quot;</p></div><div class="mini-card"><div class="card-icon">⏱️</div><h4>จังหวะ control</h4><p>&quot;ช่วยเหตุการณ์นี้ หรือแค่ครั้งหน้า&quot;</p></div></div></div>
+    <div class="idea-card"><div class="card-grid"><div class="mini-card"><div class="card-icon">Q1</div><h4>อธิบาย Trust Boundary พร้อมระบุ 2 จุดในระบบ Student Project Portal ได้ไหม</h4></div><div class="mini-card"><div class="card-icon">Q2</div><h4>จำแนก 4 เหตุการณ์ตามอนุกรมวิธาน NIST SP 800-30 ได้ไหม</h4></div><div class="mini-card"><div class="card-icon">Q3</div><h4>เปรียบเทียบ CWE, CVE, CVSS Base Score, Business Risk ได้ไหม</h4></div><div class="mini-card"><div class="card-icon">Q4</div><h4>ออกแบบมาตรการควบคุมครบ 3 ประเภทสำหรับ 1 สถานการณ์ได้ไหม</h4></div></div></div>
   </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §6 Incident Walkthrough<br><br>&quot;สามคำถามนี้แยกคนที่<em>แยกเป็น</em>ออกจากคนที่<em>เดาแพทเทิร์น</em> — ใช้ถามตัวเองก่อนส่งทุกครั้ง: ถ้าตอบสามข้อนี้ไม่ได้ แปลว่ายังผูก claim กับ evidence ไม่แน่น&quot;</aside>
-</section>
-<section class="slide layout-wrap" data-slide="24">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §7 ปิดสัปดาห์</p>
-    <h2>เช็ค 6 หัวข้อ</h2>
-  </header>
-  <div class="slide-body">
-    <div class="wrap-panel"><div class="card-grid"><div class="mini-card"><div class="card-icon">①</div><h4>Threat &amp; Threat Actor</h4></div><div class="mini-card"><div class="card-icon">②</div><h4>Vulnerability</h4></div><div class="mini-card"><div class="card-icon">③</div><h4>Impact</h4></div><div class="mini-card"><div class="card-icon">④</div><h4>Control</h4></div><div class="mini-card"><div class="card-icon">⑤</div><h4>Risk Statement</h4></div><div class="mini-card"><div class="card-icon">⑥</div><h4>Incident Walkthrough</h4></div></div></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §7 ปิดสัปดาห์<br><br>ย้อนสารบัญ &quot;หกข้อนี้ ใครยังตอบตัวเองไม่ได้ข้อไหน อ่าน topic file ของข้อนั้น (module-09)&quot; — กลับไปดูกระดาน &quot;สรุปได้/ยังไม่ได้&quot; จากต้นคาบ: &quot;สังเกตว่าคอลัมน์ขวาไม่ได้หายไป แต่มันกลายเป็น limitation ที่เขียนเป็นภาษามืออาชีพได้แล้ว&quot;</aside>
-</section>
-<section class="slide layout-content" data-slide="25">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 02 / §7 ปิดสัปดาห์</p>
-    <h2>งานส่งของสัปดาห์ + ถัดไป</h2>
-  </header>
-  <div class="slide-body">
-    <div class="idea-card"><ul><li>ส่ง: incident evidence worksheet (เริ่มในคาบ ทำต่อ take-home)</li><li>ถัดไป W3: วาดแผนที่ระบบ — asset/data-flow map และ trust boundary</li></ul></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 02 / §7 ปิดสัปดาห์<br><br>&quot;worksheet ช่อง 1–5 เริ่มด้วยกันแล้ว ช่อง 6–7 กลับไปเขียนให้จบเป็นการบ้าน — W3 เราจะวาดแผนที่ของระบบเดียวกันนี้ทั้งระบบ แล้วเหตุการณ์แบบวันนี้จะกลายเป็นแค่จุดเดียวบนแผนที่ใหญ่&quot;</aside>
-</section>
-<section class="slide layout-title" data-slide="26">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Start with what matters</h2>
-  </header>
-  <div class="slide-body">
-    <div class="title-points"><p>เริ่มจาก asset และ data ไม่ใช่เริ่มจาก tool</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03<br><br><strong>Speaker Focus:</strong> diagram ต้องช่วยตัดสินใจ ไม่ใช่แค่สวย ให้ถามซ้ำว่า asset ใดกำลังถูกปกป้อง</aside>
-</section>
-<section class="slide layout-content" data-slide="27">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Student Project Portal</h2>
-  </header>
-  <div class="slide-body">
-    <div class="idea-card"><p>case กลางของวิชา: submission, account, instructor view, logs</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03</aside>
-</section>
-<section class="slide layout-content" data-slide="28">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Data-flow map</h2>
-  </header>
-  <div class="slide-body">
-    <div class="idea-card"><p>actor, process, data store, external system</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03</aside>
-</section>
-<section class="slide layout-content" data-slide="29">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Trust boundary</h2>
-  </header>
-  <div class="slide-body">
-    <div class="idea-card"><p>จุดที่ข้อมูลข้ามระดับความเชื่อถือคือจุดที่ control สำคัญ</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03</aside>
-</section>
-<section class="slide layout-content" data-slide="30">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Risk statement</h2>
-  </header>
-  <div class="slide-body">
-    <div class="idea-card"><p>threat exploits vulnerability causing impact to asset</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03</aside>
-</section>
-<section class="slide layout-content" data-slide="31">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Prioritise risk</h2>
-  </header>
-  <div class="slide-body">
-    <div class="idea-card"><p>impact, likelihood, exposure, control, uncertainty</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03</aside>
-</section>
-<section class="slide layout-practice" data-slide="32">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Lab handoff</h2>
-  </header>
-  <div class="slide-body">
-    <div class="practice-panel"><p>Lab 2: asset inventory, data-flow map, risk table</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03<br><br><strong>Activity Handoff:</strong> เปิด `../labs/lab-02-asset-data-flow-threat-baseline.md`</aside>
-</section>
-<section class="slide layout-wrap" data-slide="33">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Chapter 02 / Week 03</p>
-    <h2>Exit prompt</h2>
-  </header>
-  <div class="slide-body">
-    <div class="wrap-panel"><p>&quot;risk statement หนึ่งประโยคของทีมคุณคืออะไร&quot;</p></div>
-  </div>
-  <aside class="speaker-note"><strong>Source unit:</strong> Week 03<br><br>Prompt students for individual reflection or exit ticket responses.</aside>
+  <aside class="speaker-note">&quot;สี่ข้อนี้ตรงกับ LO1–LO4 ข้อละหนึ่งข้อพอดี — ตรงกับคำถามทบทวนในตำราเป๊ะ ๆ ลองตอบเองก่อนเปิดแนวคำตอบท้ายบท&quot;</aside>
 </section>
     </div>
     <footer class="deck-help">
