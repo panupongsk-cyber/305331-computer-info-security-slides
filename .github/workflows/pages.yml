@@ -33,6 +33,7 @@ jobs:
         run: |
           mkdir -p _site
           cp ./*.html ./*.css ./*.js ./*.json _site/
+          if [ -d images ]; then cp -R images _site/; fi
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
