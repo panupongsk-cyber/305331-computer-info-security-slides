@@ -2,11 +2,11 @@
   {
     "kind": "week",
     "week": 1,
-    "title": "W1 เริ่มต้นคิดแบบ Security อย่างรับผิดชอบ",
+    "title": "นิยาม ขอบเขต สินทรัพย์ และเป้าหมายการปกป้อง",
     "status": "teaching-ready",
     "published": true,
     "output": "week-01.html",
-    "slide_count": 27
+    "slide_count": 25
   },
   {
     "kind": "week",

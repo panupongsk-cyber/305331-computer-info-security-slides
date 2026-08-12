@@ -3,287 +3,267 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Week 01 - W1 เริ่มต้นคิดแบบ Security อย่างรับผิดชอบ | NU 305331</title>
+  <title>Week 01 - นิยาม ขอบเขต สินทรัพย์ และเป้าหมายการปกป้อง | NU 305331</title>
   <link rel="stylesheet" href="deck.css">
 </head>
 <body class="deck-page">
-  <main class="deck" data-week="01" data-total="27">
+  <main class="deck" data-week="01" data-total="25">
     <nav class="deck-topbar" aria-label="Slide controls">
       <a class="home-link" href="index.html">305331 HTML Slides</a>
-      <span class="deck-title">Week 01: W1 เริ่มต้นคิดแบบ Security อย่างรับผิดชอบ</span>
-      <span class="counter"><span id="current-slide">1</span> / 27</span>
+      <span class="deck-title">Week 01: นิยาม ขอบเขต สินทรัพย์ และเป้าหมายการปกป้อง</span>
+      <span class="counter"><span id="current-slide">1</span> / 25</span>
     </nav>
     <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
     <div class="stage">
 <section class="slide layout-title" data-slide="1">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §0 เปิดวิชา</p>
-    <h2>305331 ความมั่นคงของคอมพิวเตอร์และสารสนเทศ</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §0 ภาษากลางสำหรับการวิเคราะห์ความมั่นคงปลอดภัย</p>
+    <h2>นิยาม ขอบเขต สินทรัพย์ และเป้าหมายการปกป้อง</h2>
   </header>
   <div class="slide-body">
-    <div class="title-points"><ul><li>สัปดาห์ที่ 1</li><li>มองผลกระทบก่อนเลือกเครื่องมือ</li></ul></div>
+    <div class="title-points"><p>ความมั่นคงปลอดภัยของคอมพิวเตอร์และสารสนเทศ</p></div>
   </div>
-  <aside class="speaker-note">ทักทาย แนะนำตัว แล้ววางกรอบ &quot;วิชานี้มีบรรยาย 2 ชั่วโมงและกิจกรรมปฏิบัติ 2 ชั่วโมงทุกสัปดาห์ — แนวคิดที่เรียนช่วงแรกจะถูกใช้สร้างหลักฐานในกิจกรรมช่วงถัดไป&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
+  <aside class="speaker-note">บทนี้สร้างภาษากลางสำหรับอธิบายว่าอะไรมีคุณค่า อะไรอาจก่อความเสียหาย และระบบควรรักษาคุณสมบัติใดไว้ การวิเคราะห์ที่ดีเริ่มจากความหมายและบริบทก่อนเลือกเครื่องมือ<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §1–§2</aside>
 </section>
 <section class="slide layout-content" data-slide="2">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §0 เปิดวิชา</p>
-    <h2>หกคำถามนำทางทั้งเทอม</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §0 ภาษากลางสำหรับการวิเคราะห์ความมั่นคงปลอดภัย</p>
+    <h2>Security มีสามมุมมองที่ใช้ร่วมกัน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-6"><div class="mini-card"><div class="card-icon">①</div><h4>ทำไม security สำคัญ</h4></div><div class="mini-card"><div class="card-icon">②</div><h4>Computer security คืออะไร</h4></div><div class="mini-card"><div class="card-icon">③</div><h4>Asset คืออะไร</h4></div><div class="mini-card"><div class="card-icon">④</div><h4>CIA ใช้อ่านผลกระทบอย่างไร</h4></div><div class="mini-card"><div class="card-icon">⑤</div><h4>ผู้โจมตี–ผู้ป้องกันต่างกันอย่างไร</h4></div><div class="mini-card"><div class="card-icon">⑥</div><h4>ศัพท์ใดต้องใช้ให้แม่น</h4></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">GOAL</div><h4>คุณสมบัติของระบบ</h4><p>ทำงานอย่างปลอดภัยและเชื่อถือได้</p></div><div class="mini-card"><div class="card-icon">SERVICE</div><h4>บริการและกลไก</h4><p>กำหนดสิ่งที่ต้องปกป้องและวิธีปกป้อง</p></div><div class="mini-card"><div class="card-icon">RISK</div><h4>การบริหารความเสี่ยง</h4><p>หลีกเลี่ยงความสูญเสียที่ยอมรับไม่ได้</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;หกคำถามนี้คือกระดูกสันหลังของทั้งเทอมครับ จดไว้ในใจ ท้ายคาบเราจะย้อนกลับมาเช็คว่าตอบได้ครบหรือยัง&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
+  <aside class="speaker-note">มาตรฐานแต่ละฉบับมอง Security จากคนละบริบท แต่มีแกนร่วมสามด้าน ได้แก่ คุณสมบัติของระบบ บริการหรือกลไกป้องกัน และการบริหารความเสี่ยง Security จึงไม่ใช่คำรับรองว่าจะไม่มีเหตุการณ์เกิดขึ้น แต่เป็นการควบคุมความเสี่ยงให้อยู่ในระดับที่ยอมรับได้<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.1; ITU-T Q.1231 §8.3.3; ITU-T X.800; NIST SP 800-160 Vol.1 Rev.1 §3.1</aside>
 </section>
 <section class="slide layout-content" data-slide="3">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §0 เปิดวิชา</p>
-    <h2>คำถามเปิดวิชา</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §0 ภาษากลางสำหรับการวิเคราะห์ความมั่นคงปลอดภัย</p>
+    <h2>ผลการเรียนรู้ของบทครอบคลุมสี่ความสามารถ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><p>&quot;ถ้าระบบทะเบียนล่มทั้งวัน ใครเดือดร้อนบ้าง?&quot;</p></div>
+    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">1</div><h4>นิยามและขอบเขต</h4><p>อธิบาย Security และสามขอบเขต</p></div><div class="mini-card"><div class="card-icon">2</div><h4>สินทรัพย์และข้อมูล</h4><p>จำแนกสินทรัพย์และระดับชั้นข้อมูล</p></div><div class="mini-card"><div class="card-icon">3</div><h4>เป้าหมายการปกป้อง</h4><p>ใช้ CIA และเป้าหมายส่วนขยาย</p></div><div class="mini-card"><div class="card-icon">4</div><h4>วงจรชีวิต</h4><p>เชื่อม Design, Build, Operate, Assess, Communicate</p></div></div></div>
   </div>
-  <aside class="speaker-note">ให้ตอบปากเปล่า 3–4 คน จดบนกระดาน &quot;ทุกคำตอบคือคน งาน ความเชื่อมั่น — <strong>วิชานี้วัดกันที่ผลกระทบ ไม่ใช่ความเท่ของเครื่องมือ</strong> เก็บกระดานนี้ไว้ เดี๋ยวใช้อีกสองรอบ&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
+  <aside class="speaker-note">สี่ความสามารถนี้เรียงจากการสร้างความหมาย ไปสู่การระบุสิ่งที่ต้องปกป้อง การเลือกเป้าหมายการปกป้อง และการมองงานความมั่นคงปลอดภัยตลอดวงจรชีวิต<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §1</aside>
 </section>
 <section class="slide layout-content" data-slide="4">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §1 Why Security Matters</p>
-    <h2>Security ล้มเหลวแล้วกระทบมากกว่าเครื่อง</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §0 ภาษากลางสำหรับการวิเคราะห์ความมั่นคงปลอดภัย</p>
+    <h2>Student Project Portal ทำให้แนวคิดเชื่อมเป็นระบบเดียว</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">COST</div><h4>การเงิน</h4><p>ต้นทุนเฉลี่ย breach $4.44 ล้าน (IBM 2025)</p></div><div class="mini-card"><div class="card-icon">TRUST</div><h4>ชื่อเสียง</h4><p>ลูกค้าสูญเสียความเชื่อมั่น</p></div><div class="mini-card"><div class="card-icon">LAW</div><h4>กฎหมาย</h4><p>regulator สอบสวนเร่งด่วน (PDPA/PDPC)</p></div><div class="mini-card"><div class="card-icon">OPS</div><h4>งานหยุดชะงัก</h4><p>เคส The 1 Card (ไทย, 2024) 5.1 ล้านรายหลุด</p></div></div></div>
+    <div class="idea-card"><div class="flow-chain"><div class="flow-step">นิสิต ผู้ประเมิน และผู้ดูแลระบบ</div><div class="flow-arrow">→</div><div class="flow-step">Web Client และ Application Server</div><div class="flow-arrow">→</div><div class="flow-step">Database และ File Storage</div></div></div>
   </div>
-  <aside class="speaker-note">เล่าเคส The 1 Card: แฮกเกอร์เข้าระบบ API ขโมยข้อมูลสมาชิก 5,108,826 รายชื่อ ทยอยปล่อยขายสัปดาห์ละ 5 แสนราย PDPC สอบสวนเร่งด่วน แตกลง 4 ช่อง &quot;<strong>สี่ช่องนี้จะโผล่ในทุกข้อสอบและทุก report ที่พวกคุณเขียน</strong>&quot; — เสริมตัวเลขโลก: IBM Cost of a Data Breach 2025 เฉลี่ย $4.44 ล้าน/ครั้ง<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-13, topic-02</aside>
+  <aside class="speaker-note">ระบบกรณีศึกษามีบทบาทผู้ใช้สามกลุ่มและองค์ประกอบหลักสามชั้น นิสิตส่งไฟล์และดูผล ผู้ประเมินตรวจผลงานและบันทึกคะแนน ส่วนผู้ดูแลระบบจัดการสิทธิ์และบันทึกเหตุการณ์ โครงสร้างนี้ช่วยให้เห็นทั้งสินทรัพย์ ขอบเขตสิทธิ์ และผลกระทบในสถานการณ์เดียว<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §2</aside>
 </section>
 <section class="slide layout-content" data-slide="5">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §1 Why Security Matters</p>
-    <h2>ใกล้ตัวกว่าที่คิด</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §1 นิยามและขอบเขต</p>
+    <h2>สามขอบเขตทับซ้อนกัน แต่เน้นคนละสิ่ง</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">35,358</div><h4>ETDA รับแจ้ง</h4><p>เรื่อง (2024)</p></div><div class="mini-card"><div class="card-icon">1,827</div><h4>ThaiCERT</h4><p>เหตุการณ์ (2024)</p></div><div class="mini-card"><div class="card-icon">27%</div><h4>ภาคการศึกษา</h4><p>โดนมากสุด</p></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">INFO</div><h4>Information Security</h4><p>สารสนเทศทุกรูปแบบ รวมคนและกระบวนการ</p></div><div class="mini-card"><div class="card-icon">CYBER</div><h4>Cybersecurity</h4><p>สินทรัพย์ที่เชื่อมโยงหรือพึ่งพาไซเบอร์สเปซ</p></div><div class="mini-card"><div class="card-icon">COMPUTER</div><h4>Computer Security</h4><p>ระบบคอมพิวเตอร์และสารสนเทศที่ประมวลผล</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;ไม่ใช่เรื่องของบริษัทใหญ่อย่างเดียว — <strong>ภาคการศึกษาคือเป้าที่ถูกโจมตีมากที่สุดในไทยตอนนี้</strong> บัญชีมหาวิทยาลัยของพวกคุณเองก็เป็นเป้า&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-13, topic-02</aside>
+  <aside class="speaker-note">คำทั้งสามไม่ใช่คำเดียวกันและไม่ใช่ลำดับชั้นสากล Information Security มองกว้างถึงข้อมูลกระดาษ คน และกระบวนการ Cybersecurity เน้นสภาพแวดล้อมไซเบอร์ ส่วน Computer Security เน้นระบบคอมพิวเตอร์และทรัพยากรของระบบ ต้องอ่านนิยามตามบริบทของเอกสารเสมอ<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.2; RFC 4949; ITU-T X.1205; ISO/IEC 27000:2018</aside>
 </section>
 <section class="slide layout-content" data-slide="6">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §1 Why Security Matters</p>
-    <h2>ทุกบทบาทเทคนิคมีหน้าที่ด้าน Security</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §1 นิยามและขอบเขต</p>
+    <h2>บริบทเป็นตัวกำหนดว่าขอบเขตใดเด่นที่สุด</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-5"><div class="mini-card"><div class="card-icon">DEV</div><h4>Dev/Infra/Data/QA/PM</h4><p>ทุกบทบาทมีความรับผิดชอบเฉพาะทาง</p></div><div class="mini-card"><div class="card-icon">RED</div><h4>Red Team</h4><p>Offensive security</p></div><div class="mini-card"><div class="card-icon">BLUE</div><h4>Blue Team</h4><p>Defensive security</p></div><div class="mini-card"><div class="card-icon">PURPLE</div><h4>Purple Team</h4><p>ประสานสองฝั่ง</p></div><div class="mini-card"><div class="card-icon">PATH</div><h4>Cert Path</h4><p>Security+, ISC2 CC → OSCP/CySA+</p></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">PAPER</div><h4>สัญญากระดาษถูกทิ้งโดยไม่ทำลาย</h4><p>Information Security</p></div><div class="mini-card"><div class="card-icon">ONLINE</div><h4>เว็บไซต์ถูก DDoS จนใช้งานไม่ได้</h4><p>Cybersecurity</p></div><div class="mini-card"><div class="card-icon">USB</div><h4>มัลแวร์เข้าเครื่องที่ไม่ต่ออินเทอร์เน็ต</h4><p>Computer Security</p></div></div></div>
   </div>
-  <aside class="speaker-note">Think-pair 3 นาที: &quot;เลือกตำแหน่งที่อยากทำ บอกเพื่อนว่าตำแหน่งนั้นรับผิดชอบอะไรด้าน security หนึ่งข้อ&quot; สุ่มถาม 2 คู่ &quot;ตลาดสาย security ขาดคนกว่า 4.8 ล้านคนทั่วโลก (ISC2 2024) — จบวิชานี้ พื้นฐานพอไปต่อใบ cert เบื้องต้นของสายนี้ได้จริง ไม่ต้องเริ่มจาก pentester เสมอไป&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-13, topic-02</aside>
+  <aside class="speaker-note">ตัวอย่างทั้งสามแสดงว่าเส้นแบ่งไม่ได้ตายตัว เอกสารกระดาษยังเป็นปัญหา Security ได้ การโจมตีบริการออนไลน์เด่นในมิติ Cybersecurity และมัลแวร์บนเครื่องออฟไลน์ยังเป็น Computer Security แม้ไม่มีอินเทอร์เน็ต<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.2 และคำถามตรวจสอบความเข้าใจ §3</aside>
 </section>
 <section class="slide layout-content" data-slide="7">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §2 Computer Security คืออะไร</p>
-    <h2>Security รักษาการทำงานที่ตั้งใจไว้</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §1 นิยามและขอบเขต</p>
+    <h2>คำพื้นฐานหกคำต้องเชื่อมกัน ไม่ใช่ใช้แทนกัน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>NIST SP 800-12 Rev.1: ปกป้องจาก unauthorized</h3><ul><li>access</li><li>use</li><li>disclosure</li><li>disruption</li><li>modification</li><li>destruction</li></ul></section><section><h3>ISO/IEC 27000</h3><ul><li>preserve confidentiality</li><li>integrity</li><li>availability</li></ul></section></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-6"><div class="mini-card"><div class="card-icon">ASSET</div><h4>Asset</h4><p>สิ่งที่มีคุณค่า</p></div><div class="mini-card"><div class="card-icon">THREAT</div><h4>Threat</h4><p>เหตุหรือการกระทำที่อาจก่อความเสียหาย</p></div><div class="mini-card"><div class="card-icon">VULN</div><h4>Vulnerability</h4><p>เงื่อนไขอ่อนแอ</p></div><div class="mini-card"><div class="card-icon">CONTROL</div><h4>Control</h4><p>มาตรการลดความเสี่ยง</p></div><div class="mini-card"><div class="card-icon">IMPACT</div><h4>Impact</h4><p>ความเสียหายเมื่อเหตุสำเร็จ</p></div><div class="mini-card"><div class="card-icon">RISK</div><h4>Risk</h4><p>โอกาสเกิดร่วมกับผลกระทบในบริบท</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;<strong>Security คือการทำให้ระบบยังทำงานอย่างที่ตั้งใจ แม้มีคนพยายามให้มันเป็นอย่างอื่น</strong> — นิยามทางการของ NIST/ISO ใกล้กัน แต่เวลาอ้างมาตรฐานต้องอ่านนิยามและฉบับที่ใช้ในบริบทนั้นเสมอ&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-01</aside>
+  <aside class="speaker-note">Threat ไม่ใช่ Vulnerability และ Vulnerability ไม่ใช่ Risk การใช้คำให้แม่นทำให้เหตุผลตรวจสอบได้ เพราะแต่ละคำตอบคำถามคนละข้อว่าเราปกป้องอะไร อะไรอาจเกิด จุดอ่อนอยู่ที่ใด ลดความเสี่ยงอย่างไร และความเสียหายคืออะไร<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.3; NIST SP 800-30 Rev.1 §2.3; ISO/IEC 27005:2022 Clause 6</aside>
 </section>
 <section class="slide layout-content" data-slide="8">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §2 Computer Security คืออะไร</p>
-    <h2>Computer / Information / Cyber</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §1 นิยามและขอบเขต</p>
+    <h2>Risk chain แสดงเหตุผลตั้งแต่คุณค่าถึงความเสียหาย</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><figure class="slide-image"><img src="images/security-scope-venn.svg" alt="images/security-scope-venn.svg"><figcaption>Computer Security ⊂ Information Security ⊃ Cybersecurity</figcaption></figure></div>
+    <div class="idea-card"><div class="flow-chain"><div class="flow-step">Asset</div><div class="flow-arrow">→</div><div class="flow-step">Threat Actor</div><div class="flow-arrow">→</div><div class="flow-step">Vulnerability</div><div class="flow-arrow">→</div><div class="flow-step">Threat Event</div><div class="flow-arrow">→</div><div class="flow-step">Impact</div><div class="flow-arrow">→</div><div class="flow-step">Risk</div></div></div>
   </div>
-  <aside class="speaker-note">แยกขอบเขตสามคำ &quot;ในวิชานี้ใช้สลับกันได้ แต่ตอนอ่านมาตรฐานหรือประกาศรับสมัครงาน ให้รู้ว่าผู้เขียนตีกรอบไม่เท่ากัน — <strong>พ.ร.บ.ไซเบอร์ 2562 ของไทยเอง จำกัด cybersecurity ไว้แค่โครงสร้างพื้นฐานสำคัญของรัฐ แคบกว่า information security ตาม ISO</strong>&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-01</aside>
+  <aside class="speaker-note">ห่วงโซ่นี้เป็นเครื่องช่วยเรียบเรียงเหตุผล ไม่ได้บังคับว่าต้องค้นพบองค์ประกอบตามลำดับเสมอ แต่คำอธิบายสุดท้ายต้องแสดงว่าผู้กระทำหรือเหตุการณ์ใช้จุดอ่อนใด กระทบสินทรัพย์ใด และก่อผลเสียอย่างไร<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.3–§3.4; NIST SP 800-30 Rev.1 §2.3</aside>
 </section>
 <section class="slide layout-content" data-slide="9">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §2 Computer Security คืออะไร</p>
-    <h2>Security ≠ Hacking</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §1 นิยามและขอบเขต</p>
+    <h2>Risk statement ที่ดีระบุเหตุ เงื่อนไข และผลกระทบ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>ทดสอบเจาะ</h3><ul><li>Penetration Testing</li></ul></section><section><h3>งานส่วนใหญ่</h3><ul><li>ออกแบบ</li><li>ป้องกัน</li><li>ตรวจสอบ</li><li>กู้คืน</li></ul></section></div></div>
+    <div class="idea-card"><p>ในสภาพแวดล้อมทดสอบที่ได้รับอนุญาต ผู้ใช้ที่ผ่านการยืนยันตัวตนอาจดาวน์โหลดไฟล์ของผู้อื่น เพราะระบบไม่ตรวจ Object-level Authorization ส่งผลให้ข้อมูลโครงงานถูกเปิดเผย</p></div>
   </div>
-  <aside class="speaker-note">&quot;ใครสมัครเพราะอยากแฮ็กบ้าง ยกมือได้ ไม่ผิด&quot; รอเสียงหัวเราะ &quot;เราจะได้อ่านหลักฐานการโจมตีจริงในสภาพแวดล้อมที่ถูกกฎหมาย แต่ <strong>งานส่วนใหญ่และเงินเดือนส่วนใหญ่ของสายนี้อยู่ฝั่งป้องกัน ซึ่งต้องเก่งกว่าฝั่งเจาะ</strong>&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-01</aside>
+  <aside class="speaker-note">ประโยคนี้ระบุขอบเขต ผู้กระทำ จุดอ่อน เหตุการณ์ สินทรัพย์ และผลกระทบ คำว่า “อาจ” ป้องกันการสรุปเกินหลักฐาน การส่งคำขอเพียงครั้งเดียวยังไม่พิสูจน์ว่าระบบตอบข้อมูลจริง<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.4</aside>
 </section>
 <section class="slide layout-content" data-slide="10">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §2 Computer Security คืออะไร</p>
-    <h2>Security คือคุณภาพวิศวกรรม</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §1 นิยามและขอบเขต</p>
+    <h2>การทดสอบอย่างรับผิดชอบยึดขอบเขตและหลักฐานเท่าที่จำเป็น</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><p>คุณสมบัติระบบ: ถูกต้อง เร็ว บำรุงรักษาได้ <strong>ปลอดภัย</strong></p></div>
+    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">STOP</div><h4>หยุด</h4><p>เมื่อเป้าหมายหรือวิธีเกินขอบเขตที่อนุญาต</p></div><div class="mini-card"><div class="card-icon">RECORD</div><h4>บันทึก</h4><p>เฉพาะหลักฐานที่จำเป็นต่อข้อค้นพบ</p></div><div class="mini-card"><div class="card-icon">REPORT</div><h4>รายงาน</h4><p>ผ่านช่องทางที่เจ้าของระบบกำหนด</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;<strong>โค้ดที่ทำงานถูกแต่ปล่อยข้อมูลผู้ใช้หลุด คือโค้ดที่ยังไม่เสร็จ</strong> — security เป็นคุณภาพงานของวิศวกรทุกคน ไม่ใช่ของทีม security เท่านั้น&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-01</aside>
+  <aside class="speaker-note">การพบจุดอ่อนไม่ได้สร้างสิทธิ์ให้เข้าถึงข้อมูลเพิ่มเติม หลักฐานที่ดีต้องเพียงพอต่อการอธิบายข้อค้นพบ แต่ไม่เพิ่มความเสียหาย การหยุด บันทึก และรายงานจึงเป็นส่วนหนึ่งของความเป็นมืออาชีพ<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.5; OWASP Vulnerability Disclosure Cheat Sheet</aside>
 </section>
 <section class="slide layout-content" data-slide="11">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §3 Asset</p>
-    <h2>จะปกป้อง ต้องรู้ก่อนว่าปกป้อง &quot;อะไร&quot;</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §2 สินทรัพย์และการจำแนกชั้นข้อมูล</p>
+    <h2>สินทรัพย์หลักบอกคุณค่า สินทรัพย์สนับสนุนทำให้คุณค่านั้นดำรงอยู่</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><p>นิยาม asset (ISO/IEC 27005): &quot;อะไรก็ตามที่มีคุณค่าต่อองค์กรและองค์กรมีพันธะต้องปกป้อง&quot;</p></div>
+    <div class="idea-card"><div class="two-column"><section><h3>Primary Assets</h3><ul><li>ไฟล์โครงงาน</li><li>คะแนน</li><li>กระบวนการประเมิน</li></ul></section><section><h3>Supporting Assets</h3><ul><li>เว็บ</li><li>API</li><li>ฐานข้อมูล</li><li>ที่เก็บไฟล์</li><li>การตั้งค่า</li><li>Audit Log</li></ul></section></div></div>
   </div>
-  <aside class="speaker-note">&quot;คำที่สำคัญที่สุดของวันนี้อาจไม่ใช่ hacker แต่คือ asset ครับ — <strong>ถ้ายังบอกไม่ได้ว่าปกป้องอะไร ก็ยังทำ security ไม่ได้</strong> NIST ยืนยันเรื่องนี้ตรง ๆ: threat/vulnerability/impact ประเมินไม่ได้เลยถ้ายังไม่รู้ asset&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-14</aside>
+  <aside class="speaker-note">Primary Assets มีคุณค่าโดยตรงต่อภารกิจ ส่วน Supporting Assets รองรับหรือปกป้องสินทรัพย์หลัก เซิร์ฟเวอร์ไม่ได้สำคัญเพราะเป็นเครื่องเพียงอย่างเดียว แต่สำคัญเพราะความล้มเหลวของมันกระทบข้อมูลและกระบวนการที่มีคุณค่า<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §4.1; ISO/IEC 27002:2022 Control 5.9</aside>
 </section>
 <section class="slide layout-content" data-slide="12">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §3 Asset</p>
-    <h2>Asset มีมากกว่าข้อมูล</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §2 สินทรัพย์และการจำแนกชั้นข้อมูล</p>
+    <h2>สี่ระดับข้อมูลช่วยเลือกการจัดการที่ได้สัดส่วน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-6"><div class="mini-card"><div class="card-icon">HW</div><h4>Hardware</h4></div><div class="mini-card"><div class="card-icon">SW</div><h4>Software</h4></div><div class="mini-card"><div class="card-icon">DATA</div><h4>Data</h4></div><div class="mini-card"><div class="card-icon">SERVICE</div><h4>Service</h4></div><div class="mini-card"><div class="card-icon">PEOPLE</div><h4>People</h4></div><div class="mini-card"><div class="card-icon">TRUST</div><h4>Reputation</h4></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">PUBLIC</div><h4>Public</h4><p>ประกาศที่เปิดเผยได้</p></div><div class="mini-card"><div class="card-icon">INTERNAL</div><h4>Internal</h4><p>ข้อมูลใช้เฉพาะผู้เกี่ยวข้อง</p></div><div class="mini-card"><div class="card-icon">CONF</div><h4>Confidential</h4><p>ข้อมูลที่การรั่วไหลก่อความเสียหาย</p></div><div class="mini-card"><div class="card-icon">HIGH</div><h4>Highly Restricted</h4><p>Credential, Private Key หรือข้อมูลผลกระทบร้ายแรง</p></div></div></div>
   </div>
-  <aside class="speaker-note">(taxonomy สังเคราะห์จาก NIST/ISO/FAIR — Primary vs Supporting Asset) กลับไปที่กระดานจากสไลด์ 3 &quot;ที่พวกคุณตอบตอนต้นคาบ ล้วนคือ asset — ข้อมูลนิสิต ตัวบริการลงทะเบียน เวลาของทุกคน ความเชื่อมั่นต่อมหาวิทยาลัย <strong>asset ที่ดูเทคนิคอย่าง database server สำคัญเพราะมันรองรับ asset หลักอื่น ไม่ใช่เพราะตัวมันเองมีค่า</strong>&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-14</aside>
+  <aside class="speaker-note">ชื่อสี่ระดับนี้เป็นแบบจำลองของรายวิชา ไม่ใช่ชื่อที่ ISO หรือ FIPS กำหนดร่วมกัน จุดสำคัญคือไม่ใช้มาตรการเข้มที่สุดกับทุกข้อมูล เพราะจะเพิ่มต้นทุนและความซับซ้อนโดยไม่จำเป็น<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §4.2; ISO/IEC 27002:2022 Control 5.12; FIPS PUB 199 §2</aside>
 </section>
-<section class="slide layout-practice" data-slide="13">
+<section class="slide layout-content" data-slide="13">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §3 Asset</p>
-    <h2>กิจกรรมสั้น: asset ของแอปที่ใช้ทุกวัน</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §2 สินทรัพย์และการจำแนกชั้นข้อมูล</p>
+    <h2>Classification มีความหมายเมื่อเปลี่ยนวิธีจัดการ</h2>
   </header>
   <div class="slide-body">
-    <div class="practice-panel"><p>โจทย์: เลือกแอป 1 ตัว ระบุ asset 3 ชิ้น (คนละประเภท)</p></div>
+    <div class="idea-card"><div class="flow-chain"><div class="flow-step">กฎการเข้าถึง</div><div class="flow-arrow">→</div><div class="flow-step">การจัดเก็บและส่งต่อ</div><div class="flow-arrow">→</div><div class="flow-step">การเก็บรักษาและทำลาย</div></div></div>
   </div>
-  <aside class="speaker-note">เดี่ยว 2 นาที + แชร์ 2–3 คน &quot;เก็บคำตอบไว้ แล็บสัปดาห์หน้า (asset/data-flow map) เริ่มจากตรงนี้เลย&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-14</aside>
+  <aside class="speaker-note">ป้ายระดับข้อมูลต้องนำไปสู่คำตอบที่ตรวจสอบได้ว่าใครเข้าถึงได้ เก็บที่ใด ส่งผ่านช่องทางใด เก็บนานเท่าใด และทำลายอย่างไร หากคำตอบเหล่านี้ไม่เปลี่ยน ป้าย Classification ก็ยังไม่เกิดผลในทางปฏิบัติ<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §4.3</aside>
 </section>
 <section class="slide layout-content" data-slide="14">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §4 CIA Triad</p>
-    <h2>สามเหตุการณ์ หนึ่งเลนส์</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §2 สินทรัพย์และการจำแนกชั้นข้อมูล</p>
+    <h2>ข้อมูลในระบบเดียวกันอาจต้องการการคุ้มครองต่างกัน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">①</div><h4>ไฟล์คะแนนรั่ว</h4><p>คนไม่เกี่ยวข้องเปิดดู</p></div><div class="mini-card"><div class="card-icon">②</div><h4>คะแนนถูกแก้</h4><p>โดยไม่ได้รับอนุญาต</p></div><div class="mini-card"><div class="card-icon">③</div><h4>ระบบส่งงานล่ม</h4><p>คืนก่อนกำหนดส่ง</p></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">PUBLIC</div><h4>เกณฑ์การส่งโครงงาน</h4><p>ตรวจความถูกต้องก่อนเผยแพร่</p></div><div class="mini-card"><div class="card-icon">INTERNAL</div><h4>รายชื่อนิสิต</h4><p>จำกัดเฉพาะผู้เกี่ยวข้อง</p></div><div class="mini-card"><div class="card-icon">CONF</div><h4>ไฟล์ร่างและข้อเสนอแนะ</h4><p>จำกัดตามบทบาทและเข้ารหัสระหว่างส่ง</p></div><div class="mini-card"><div class="card-icon">HIGH</div><h4>Private Key และ Credential</h4><p>ใช้ระบบจัดการความลับและจำกัดผู้รับผิดชอบ</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;สามเหตุการณ์นี้ต่างกันอย่างไร เหมือนกันตรงไหน คิดในใจ 10 วินาที&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-03</aside>
+  <aside class="speaker-note">Supporting Asset หนึ่งชิ้นอาจรองรับข้อมูลหลายระดับ เช่น ฐานข้อมูลเดียวกันเก็บทั้งประกาศและ Credential ดังนั้นมาตรการของระบบสนับสนุนต้องพิจารณาข้อมูลระดับสูงสุดที่ระบบนั้นดูแลด้วย<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §4.2–§4.3</aside>
 </section>
 <section class="slide layout-content" data-slide="15">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §4 CIA Triad</p>
-    <h2>CIA Triad</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §3 เป้าหมายการปกป้อง</p>
+    <h2>CIA Triad เป็นเลนส์แรกสำหรับอ่านผลกระทบ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><figure class="slide-image"><img src="images/cia-triad.svg" alt="images/cia-triad.svg"><figcaption>ความลับ (Confidentiality) · ความถูกต้องครบถ้วน (Integrity) · ความพร้อมใช้งาน (Availability) — นิยามทางการ NIST SP 800-12 Rev.1</figcaption></figure></div>
+    <div class="idea-card"><figure class="slide-image"><img src="images/cia-triad.svg" alt="CIA Triad"><figcaption>Confidentiality · Integrity · Availability</figcaption></figure></div>
   </div>
-  <aside class="speaker-note">จับสามเหตุการณ์เข้าสามมุม &quot;<strong>เหตุการณ์ security ทุกเรื่องกระทบอย่างน้อยหนึ่งมุมของสามเหลี่ยมนี้</strong> — เลนส์แรกที่ใช้อ่านทุกอย่างในวิชานี้ โมเดลนี้ไม่ได้มีคนคิดคนเดียว แต่สะสมมากว่า 20 ปีตั้งแต่ยุค Cold War&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-03</aside>
+  <aside class="speaker-note">Confidentiality ป้องกันการเปิดเผยต่อผู้ไม่มีสิทธิ์ Integrity รักษาข้อมูลและพฤติกรรมระบบไม่ให้เปลี่ยนโดยมิชอบ และ Availability ทำให้ผู้มีสิทธิ์ใช้ข้อมูลหรือบริการได้เมื่อจำเป็น ทั้งสามด้านมีความสำคัญเท่าเทียมกัน<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §5.1; NIST SP 800-12 Rev.1 §1.4; ISO/IEC 27000:2018 Clauses 3.7, 3.12, 3.36</aside>
 </section>
 <section class="slide layout-content" data-slide="16">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §4 CIA Triad</p>
-    <h2>ใช้เลนส์จริง + จัดระดับผลกระทบ</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §3 เป้าหมายการปกป้อง</p>
+    <h2>เหตุการณ์เดียวอาจกระทบ CIA มากกว่าหนึ่งด้าน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>โหวต 3 สถานการณ์</h3><ul><li>ใบเสร็จถูกปลอม</li><li>รหัสผ่านหลุด</li><li>เน็ตหอล่ม</li></ul></section><section><h3>FIPS 199 ต่อมุม</h3><ul><li>LOW</li><li>MODERATE</li><li>HIGH</li></ul></section></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">C</div><h4>ไฟล์ของนิสิตถูกเปิดเผย</h4><p>Confidentiality</p></div><div class="mini-card"><div class="card-icon">I</div><h4>คะแนนถูกแก้โดยไม่มีสิทธิ์</h4><p>Integrity</p></div><div class="mini-card"><div class="card-icon">A</div><h4>ระบบส่งงานใช้ไม่ได้ก่อนเส้นตาย</h4><p>Availability</p></div></div></div>
   </div>
-  <aside class="speaker-note">ชูมือโหวต C/I/A ทีละข้อ เฉลยพร้อมเหตุผล &quot;บางเหตุการณ์กระทบมากกว่าหนึ่งมุม — <strong>ตอบได้หลายมุม ถ้าให้เหตุผลได้</strong> ระดับผลกระทบก็เหมือนกัน ไม่ใช่แค่ &#x27;สูง&#x27; ลอย ๆ แต่จัดแยกทีละมุมได้ตาม FIPS 199 แล้วใช้ high-water mark สรุปทั้งระบบ&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-03</aside>
+  <aside class="speaker-note">อย่าเลือก C, I หรือ A จากชื่อเหตุการณ์เพียงอย่างเดียว ให้พิจารณาผลที่เกิดกับข้อมูล การตัดสินใจ และบริการ เหตุการณ์ที่เปิดเผยไฟล์และเปลี่ยนคะแนนในครั้งเดียวอาจกระทบทั้ง Confidentiality และ Integrity<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §5.1</aside>
 </section>
 <section class="slide layout-content" data-slide="17">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §4 CIA Triad</p>
-    <h2>CIA เป็นจุดเริ่ม ไม่ใช่ทั้งหมด</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §3 เป้าหมายการปกป้อง</p>
+    <h2>เป้าหมายส่วนขยายตอบคำถามที่ CIA ยังไม่ละเอียดพอ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">CONTROL</div><h4>Possession/Control</h4><p>Parkerian Hexad (1998)</p></div><div class="mini-card"><div class="card-icon">AUTH</div><h4>Authenticity</h4><p>Parkerian Hexad (1998)</p></div><div class="mini-card"><div class="card-icon">TRACE</div><h4>Accountability</h4><p>NIST SP 800-33 (2001)</p></div><div class="mini-card"><div class="card-icon">CONFIDENCE</div><h4>Assurance</h4><p>NIST SP 800-33 (2001)</p></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">AUTH</div><h4>Authenticity</h4><p>แหล่งที่มาหรือตัวตนเป็นของจริง</p></div><div class="mini-card"><div class="card-icon">ACCOUNT</div><h4>Accountability</h4><p>การกระทำเชื่อมโยงกลับไปยังผู้รับผิดชอบได้</p></div><div class="mini-card"><div class="card-icon">NONREP</div><h4>Non-repudiation</h4><p>มีหลักฐานว่าผู้ส่งหรือผู้รับไม่อาจปฏิเสธการกระทำ</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;CIA เป็นจุดเริ่ม ไม่ใช่ทั้งหมด — แล็ปท็อปที่ถูกขโมยแต่ข้อมูล encrypt อยู่: <strong>confidentiality ยังอยู่ แต่ possession หายไป</strong> นี่คือช่องว่างที่ CIA มองไม่เห็น อีกสามคำนี้จะเจอช่วง authentication และ logging กลางเทอม วันนี้แค่รู้ว่ามี&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-03</aside>
+  <aside class="speaker-note">เป้าหมายสามด้านนี้เป็นกรอบเสริมสำหรับการเรียน Authenticity สนใจความแท้จริง Accountability สนใจการตรวจสอบย้อนกลับ และ Non-repudiation สนใจหลักฐานที่รองรับการไม่ปฏิเสธความรับผิด ทั้งหมดเสริม CIA ไม่ได้แทนที่ CIA<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §5.2; ISO/IEC 27000:2018 Clauses 3.2, 3.6, 3.48</aside>
 </section>
 <section class="slide layout-content" data-slide="18">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §5 Computer Security Model — Attacker vs Defender</p>
-    <h2>เกมนี้มีสองฝั่ง</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §3 เป้าหมายการปกป้อง</p>
+    <h2>Authentication และ Authorization ตอบคนละคำถาม</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>ผู้โจมตี</h3><ul><li>เป้าหมาย/แรงจูงใจ</li><li>ทรัพยากรเป็น marginal cost</li><li>attack surface</li></ul></section><section><h3>ผู้ป้องกัน</h3><ul><li>asset</li><li>controls preventive/detective/corrective/deterrent</li><li>ข้อจำกัดงบ/เวลา/usability</li></ul></section></div></div>
+    <div class="idea-card"><div class="two-column"><section><h3>Authentication</h3><ul><li>ผู้ใช้นี้เป็นใคร?</li></ul></section><section><h3>Authorization</h3><ul><li>ผู้ใช้นี้ทำอะไรกับทรัพยากรใดได้?</li></ul></section></div></div>
   </div>
-  <aside class="speaker-note">&quot;security เข้าใจง่ายขึ้นมากถ้ามองเป็นเกมสองฝั่งครับ ฝั่งโจมตีลงทุนเฉพาะเมื่อมีโอกาสสำเร็จ — เปลี่ยนเป้าหมายได้ทันทีถ้ายาก ฝั่งป้องกันต้องจ่ายต้นทุนตลอดไม่ว่าจะถูกโจมตีหรือไม่ นี่คือความไม่เท่าเทียมกันตั้งแต่ต้น&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-12</aside>
+  <aside class="speaker-note">ผู้ใช้อาจเข้าสู่ระบบด้วยบัญชีของตนเองได้ถูกต้อง แต่ยังไม่มีสิทธิ์เปิดไฟล์หรือแก้คะแนนของผู้อื่น Authentication ยืนยันตัวตน ส่วน Authorization บังคับขอบเขตการกระทำต่อทรัพยากร<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §5.3 และ §7.1</aside>
 </section>
 <section class="slide layout-content" data-slide="19">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §5 Computer Security Model — Attacker vs Defender</p>
-    <h2>ความไม่สมมาตร (asymmetry)</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §3 เป้าหมายการปกป้อง</p>
+    <h2>Integrity และ Authenticity ต้องวิเคราะห์แยกกัน</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><figure class="slide-image"><img src="images/attacker-defender-asymmetry.svg" alt="images/attacker-defender-asymmetry.svg"><figcaption>&quot;ผู้โจมตีชนะแค่จุดเดียว ผู้ป้องกันต้องถูกทุกจุด&quot; + Defender&#x27;s Dilemma (RAND)</figcaption></figure></div>
+    <div class="idea-card"><div class="two-column"><section><h3>Integrity</h3><ul><li>ข้อมูลไม่ถูกแก้ไขโดยมิชอบ</li></ul></section><section><h3>Authenticity</h3><ul><li>แหล่งที่มาหรือตัวตนเป็นของจริง</li></ul></section></div></div>
   </div>
-  <aside class="speaker-note">&quot;<strong>ผู้โจมตีต้องเจอช่องแค่ช่องเดียว แต่ผู้ป้องกันต้องปิดให้ครบทุกช่อง</strong> RAND เรียกสิ่งนี้ว่า Defender&#x27;s Dilemma: &#x27;ไม่มีทางรู้ว่าใช้งบพอหรือยัง จะรู้ก็ต่อเมื่อถูกโจมตีสำเร็จแล้วว่ามันไม่พอ&#x27; นี่คือเหตุผลที่ security ไม่มีคำว่าเสร็จ และเหตุผลที่เราจัดลำดับด้วยความเสี่ยง ไม่ใช่ไล่ปิดทุกอย่างเท่ากัน&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-12</aside>
+  <aside class="speaker-note">คำขออาจมาจากบัญชีจริง จึงมีแหล่งที่มาที่ระบุได้ แต่คำขอนั้นอาจไม่มีสิทธิ์ หากเซิร์ฟเวอร์ปฏิเสธ ข้อมูลยังรักษา Integrity หากเซิร์ฟเวอร์ยอมให้แก้ไข Integrity จึงถูกละเมิด<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §5.3</aside>
 </section>
 <section class="slide layout-content" data-slide="20">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §5 Computer Security Model — Attacker vs Defender</p>
-    <h2>คิดแบบผู้โจมตี เพื่อป้องกัน</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §3 เป้าหมายการปกป้อง</p>
+    <h2>หลักฐานต้องแยก “ส่งคำขอ” ออกจาก “เปลี่ยนสถานะสำเร็จ”</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-5"><div class="mini-card"><div class="card-icon">STATE</div><h4>Nation-state</h4></div><div class="mini-card"><div class="card-icon">CRIME</div><h4>Cybercriminal</h4></div><div class="mini-card"><div class="card-icon">CAUSE</div><h4>Hacktivist</h4></div><div class="mini-card"><div class="card-icon">INSIDE</div><h4>Insider</h4></div><div class="mini-card"><div class="card-icon">NOVICE</div><h4>Script kiddie</h4></div></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">REQUEST</div><h4>คำขอ</h4><p>บอกสิ่งที่ผู้ใช้พยายามทำ</p></div><div class="mini-card"><div class="card-icon">RESPONSE</div><h4>คำตอบ</h4><p>บอกว่าระบบยอมรับหรือปฏิเสธ</p></div><div class="mini-card"><div class="card-icon">STATE</div><h4>สถานะ</h4><p>ยืนยันว่าข้อมูลเปลี่ยนจริงหรือไม่</p></div><div class="mini-card"><div class="card-icon">LOG</div><h4>บันทึก</h4><p>ช่วยตรวจสอบผู้กระทำและเงื่อนไข</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;ผู้โจมตีมีหลายแบบ ไม่ใช่แค่แฮกเกอร์ลึกลับ — insider ที่ไม่พอใจก็นับ เราจะฝึก &#x27;คิดแบบผู้โจมตี&#x27; ตลอดเทอม — บนกระดาษและใน lab ที่ได้รับอนุญาตเท่านั้น สัปดาห์ที่ 4 จะทำเป็นระบบในหัวข้อ threat modeling ครับ&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-12</aside>
+  <aside class="speaker-note">การเห็น HTTP Request เพียงอย่างเดียวพิสูจน์ได้เพียงว่ามีความพยายาม หลักฐานของผลลัพธ์ต้องดู Response สถานะข้อมูลหลังเหตุการณ์ และบันทึกที่เกี่ยวข้อง จึงจะอธิบาย Integrity หรือ Accountability ได้อย่างมีขอบเขต<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.4 และ §5.3</aside>
 </section>
-<section class="slide layout-content" data-slide="21">
+<section class="slide layout-practice" data-slide="21">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §6 Important Terminology</p>
-    <h2>ศัพท์ 12 คำต้องไม่ใช้ปนกัน</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §4 กิจกรรมความมั่นคงปลอดภัยตลอดวงจรชีวิต</p>
+    <h2>Security ไม่ใช่การสแกนครั้งสุดท้ายหลังสร้างระบบเสร็จ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><ul class="bullet-grid"><li>asset (ทรัพย์สิน)</li><li>threat (ภัยคุกคาม)</li><li>threat actor (ผู้คุกคาม)</li><li>vulnerability (ช่องโหว่)</li><li>attack (การโจมตี)</li><li>exploit (การใช้ประโยชน์จากช่องโหว่)</li><li>control (มาตรการควบคุม)</li><li>impact (ผลกระทบ)</li><li>likelihood (โอกาสเกิด)</li><li>risk (ความเสี่ยง)</li><li>exposure (การเปิดรับความเสี่ยง)</li><li>breach (การรั่วไหล)</li></ul></div>
+    <div class="practice-panel"><div class="card-grid card-grid-5"><div class="mini-card"><div class="card-icon">DESIGN</div><h4>Design</h4><p>กำหนดบทบาท ข้อกำหนด และ Trust Boundary</p></div><div class="mini-card"><div class="card-icon">BUILD</div><h4>Build</h4><p>เขียนโค้ดและตั้งค่าอย่างปลอดภัย</p></div><div class="mini-card"><div class="card-icon">OPERATE</div><h4>Operate</h4><p>ดูแลระบบ ความลับ และ Audit Log</p></div><div class="mini-card"><div class="card-icon">ASSESS</div><h4>Assess</h4><p>ตรวจสอบและประเมินภายในขอบเขต</p></div><div class="mini-card"><div class="card-icon">COMM</div><h4>Communicate</h4><p>รายงานหลักฐาน ข้อจำกัด และความเสี่ยง</p></div></div></div>
   </div>
-  <aside class="speaker-note">ไล่ทีละคำด้วยตัวอย่างเดียวกัน (ระบบทะเบียน) &quot;<strong>risk ไม่เท่ากับ threat และไม่เท่ากับ vulnerability</strong> — สามคำนี้ใช้ปนกันเมื่อไหร่ เหตุผลพังทันที ตารางนี้ตรงกับ glossary กลางของวิชาทุกคำ&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-15</aside>
+  <aside class="speaker-note">ห้ามิตินี้เป็นกรอบสังเคราะห์ของรายวิชาเพื่อทำให้งาน Security ตลอดวงจรชีวิตมองเห็นได้ ไม่ใช่ชื่อกระบวนการทางการชุดเดียวจาก NIST แต่ละมิติสร้างหลักฐานและการตัดสินใจคนละแบบ<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §6; NIST SP 800-160 Vol.1 Rev.1 §3.2 และ Appendices G–I</aside>
 </section>
-<section class="slide layout-content" data-slide="22">
+<section class="slide layout-practice" data-slide="22">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §6 Important Terminology</p>
-    <h2>ประกอบร่าง: หนึ่งประโยคความเสี่ยง</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §4 กิจกรรมความมั่นคงปลอดภัยตลอดวงจรชีวิต</p>
+    <h2>ระบบเดียวต้องได้รับการปกป้องครบทั้งห้ามิติ</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="flow-chain"><div class="flow-step">threat</div><div class="flow-arrow">→</div><div class="flow-step">vulnerability</div><div class="flow-arrow">→</div><div class="flow-step">impact</div></div></div>
+    <div class="practice-panel"><div class="card-grid card-grid-5"><div class="mini-card"><div class="card-icon">DESIGN</div><h4>Design</h4><p>ออกแบบสิทธิ์ดาวน์โหลดและ Data Flow</p></div><div class="mini-card"><div class="card-icon">BUILD</div><h4>Build</h4><p>ตรวจ Object-level Authorization ฝั่งเซิร์ฟเวอร์</p></div><div class="mini-card"><div class="card-icon">OPERATE</div><h4>Operate</h4><p>เปิด TLS และเก็บ Audit Log ที่เหมาะสม</p></div><div class="mini-card"><div class="card-icon">ASSESS</div><h4>Assess</h4><p>ตรวจพฤติกรรมอนุญาตและปฏิเสธ</p></div><div class="mini-card"><div class="card-icon">COMM</div><h4>Communicate</h4><p>อธิบายข้อค้นพบและข้อจำกัด</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;ลองอ่านประโยคนี้ครับ: <em>เพราะเซิร์ฟเวอร์ไม่ได้อัปเดต (vulnerability) มัลแวร์ (threat) อาจเข้าถึงข้อมูลนิสิต (asset) ทำให้ข้อมูลรั่วและงานทะเบียนหยุด (impact)</em> — ศัพท์ทุกคำเข้าประโยคเดียวกันได้ นี่คือรูปประโยคที่จะใช้เขียน risk ทั้งเทอม&quot;<br><br><strong>[Sources]</strong> 305331 lecture-note topic pack: topic-15</aside>
+  <aside class="speaker-note">Student Project Portal แสดงว่าการตัดสินใจแต่ละช่วงพึ่งพากัน การออกแบบที่ดีต้องถูกสร้างอย่างถูกต้อง การดำเนินงานต้องรักษาสภาพนั้น การประเมินต้องตรวจผลจริง และการสื่อสารต้องไม่อ้างเกินหลักฐาน<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §6.1</aside>
 </section>
 <section class="slide layout-content" data-slide="23">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §7 กติกาวิชา: Authorised Scope</p>
-    <h2>ความสามารถทางเทคนิคไม่ใช่การอนุญาต</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §5 สังเคราะห์และทบทวน</p>
+    <h2>การวิเคราะห์ที่ครบถ้วนเชื่อมคุณค่า เป้าหมาย และวงจรชีวิต</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">ALLOWED</div><h4>ทำได้</h4><p>เฉพาะขอบเขต lab ที่ได้รับอนุญาต</p></div><div class="mini-card"><div class="card-icon">ASK</div><h4>ถามก่อน</h4><p>เมื่อเป้าหมาย วิธี หรือข้อมูลไม่ชัด</p></div><div class="mini-card"><div class="card-icon">STOP</div><h4>ห้ามทำ</h4><p>กับระบบจริงนอกขอบเขต</p></div></div></div>
+    <div class="idea-card"><div class="flow-chain"><div class="flow-step">Security context</div><div class="flow-arrow">→</div><div class="flow-step">Asset and classification</div><div class="flow-arrow">→</div><div class="flow-step">Protection goals and risk</div><div class="flow-arrow">→</div><div class="flow-step">Lifecycle decisions</div></div></div>
   </div>
-  <aside class="speaker-note">เปลี่ยนโทนจริงจัง &quot;ทักษะในวิชานี้ ใช้กับระบบที่ไม่ได้รับอนุญาตเมื่อไหร่ อาจผิดกฎหมายและทำให้ผู้อื่นเสียหายได้ — <strong>สงสัยเมื่อไหร่ = ask first เสมอ และการถามไม่มีโทษ</strong>&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
+  <aside class="speaker-note">เริ่มจากนิยามและบริบท ระบุสินทรัพย์กับระดับข้อมูล ใช้ CIA และเป้าหมายส่วนขยายอ่านผลกระทบ แล้วเชื่อมข้อค้นพบไปยัง Design, Build, Operate, Assess และ Communicate ลำดับนี้ทำให้เหตุผลไม่หยุดอยู่ที่ชื่อเครื่องมือหรือชื่อช่องโหว่<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §7</aside>
 </section>
 <section class="slide layout-content" data-slide="24">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §7 กติกาวิชา: Authorised Scope</p>
-    <h2>ขอบเขตคุ้มครองทั้งผู้เรียนและผู้อื่น</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §5 สังเคราะห์และทบทวน</p>
+    <h2>อ่านสถานการณ์หนึ่งด้วยกรอบทั้งบท</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="card-grid card-grid-3"><div class="mini-card"><div class="card-icon">UNIVERSITY</div><h4>วินัยนิสิต</h4><p>การกระทำอาจมีผลทางวินัย</p></div><div class="mini-card"><div class="card-icon">LAW</div><h4>พ.ร.บ.คอมฯ ม.5–7</h4><p>การเข้าถึงโดยมิชอบอาจมีโทษ</p></div><div class="mini-card"><div class="card-icon">CAREER</div><h4>ความเป็นมืออาชีพ</h4><p>หลักฐานต้องตรวจสอบได้และไม่ทำร้ายใคร</p></div></div></div>
+    <div class="idea-card"><p class="bullet-intro">ผู้ใช้บัญชีจริงส่งคำขอแก้คะแนนของผู้อื่น:</p><ul><li>สินทรัพย์ใดได้รับผลกระทบ</li><li>ข้อมูลอยู่ระดับใด</li><li>Authentication และ Authorization ให้คำตอบอะไร</li><li>CIA และเป้าหมายส่วนขยายใดเกี่ยวข้อง</li><li>หลักฐานใดยืนยันผลลัพธ์</li></ul></div>
   </div>
-  <aside class="speaker-note">ใช้สถานการณ์ทั่วไป: นักศึกษาสแกนระบบจริงนอกขอบเขตแล้วเกิดผลกระทบ &quot;กรอบนี้ไม่ได้กันพวกคุณจากการเรียนรู้ แต่ทำให้เราฝึกทักษะจริงได้อย่างรับผิดชอบ&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
+  <aside class="speaker-note">สถานการณ์เดียวเชื่อมได้ทุกผลการเรียนรู้ คะแนนเป็น Primary Asset และมักเป็น Confidential ผู้ใช้ผ่าน Authentication แต่ต้องตรวจ Authorization ผลกระทบหลักอยู่ที่ Integrity และ Accountability ส่วนข้อสรุปต้องอาศัย Response สถานะข้อมูล และ Audit Log<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §3.4, §4 และ §5</aside>
 </section>
 <section class="slide layout-content" data-slide="25">
   <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §7 กติกาวิชา: Authorised Scope</p>
-    <h2>Evidence hygiene</h2>
+    <p class="eyebrow">NU 305331 / Week 01 / §5 สังเคราะห์และทบทวน</p>
+    <h2>คำถามทบทวนสี่ข้อครอบคลุมทั้งบท</h2>
   </header>
   <div class="slide-body">
-    <div class="idea-card"><div class="two-column"><section><h3>ห้าม</h3><ul><li>credential จริง</li><li>token</li><li>ข้อมูลส่วนบุคคลจริง</li></ul></section><section><h3>ต้องมี</h3><ul><li>scope</li><li>evidence ID</li><li>ข้อจำกัด</li><li>AI declaration</li></ul></section></div></div>
+    <div class="idea-card"><div class="card-grid card-grid-4"><div class="mini-card"><div class="card-icon">Q1</div><h4>ขอบเขต</h4><p>อธิบายความต่างของ Computer, Cyber และ Information Security</p></div><div class="mini-card"><div class="card-icon">Q2</div><h4>สินทรัพย์และข้อมูล</h4><p>จำแนก Primary, Supporting และสี่ระดับข้อมูล</p></div><div class="mini-card"><div class="card-icon">Q3</div><h4>เป้าหมาย</h4><p>แยก CIA, Authenticity, Accountability และ Non-repudiation</p></div><div class="mini-card"><div class="card-icon">Q4</div><h4>วงจรชีวิต</h4><p>ยกตัวอย่าง Design, Build, Operate, Assess, Communicate</p></div></div></div>
   </div>
-  <aside class="speaker-note">&quot;รายงานทุกชิ้นต้องสะอาดพอโชว์คนนอกได้โดยไม่ทำร้ายใคร — บ่ายนี้เขียนชิ้นแรกกันจริง&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
-</section>
-<section class="slide layout-wrap" data-slide="26">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §8 ปิดคาบ</p>
-    <h2>โครงวิชา + การวัดผล</h2>
-  </header>
-  <div class="slide-body">
-    <div class="wrap-panel"><div class="card-grid card-grid-6"><div class="mini-card"><div class="card-icon">30%</div><h4>กลางภาค</h4></div><div class="mini-card"><div class="card-icon">30%</div><h4>ปลายภาค</h4></div><div class="mini-card"><div class="card-icon">10%</div><h4>Lab</h4></div><div class="mini-card"><div class="card-icon">10%</div><h4>Project</h4></div><div class="mini-card"><div class="card-icon">10%</div><h4>Quiz</h4></div><div class="mini-card"><div class="card-icon">10%</div><h4>Participation</h4></div></div></div>
-  </div>
-  <aside class="speaker-note">(น้ำหนักคะแนนนี้ยืนยันกับอาจารย์แล้ว 2026-07-08 — ดู blueprint.md) เดินเร็ว &quot;หลักสำคัญคือทุก CLO ต้องผ่านเกณฑ์ขั้นต่ำแยกกัน ไม่ใช่แค่คะแนนรวมถึง — <strong>งานระหว่างทางทั้งหมดรวม 40% และเป็นหลักฐานหลักของ CLO ภาคปฏิบัติ</strong> ใครทำแล็บสม่ำเสมอได้เปรียบมาก เริ่มมองหาทีมโปรเจกต์ 3–4 คนได้เลย&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
-</section>
-<section class="slide layout-wrap" data-slide="27">
-  <header class="slide-header">
-    <p class="eyebrow">NU 305331 / Week 01 / §8 ปิดคาบ</p>
-    <h2>เช็ค 6 หัวข้อ + ไปแล็บ</h2>
-  </header>
-  <div class="slide-body">
-    <div class="wrap-panel"><div class="card-grid card-grid-6"><div class="mini-card"><div class="card-icon">①</div><h4>ทำไม security สำคัญ</h4></div><div class="mini-card"><div class="card-icon">②</div><h4>Computer security คืออะไร</h4></div><div class="mini-card"><div class="card-icon">③</div><h4>Asset</h4></div><div class="mini-card"><div class="card-icon">④</div><h4>CIA Triad</h4></div><div class="mini-card"><div class="card-icon">⑤</div><h4>ผู้โจมตี–ผู้ป้องกัน</h4></div><div class="mini-card"><div class="card-icon">⑥</div><h4>ศัพท์สำคัญ</h4></div></div></div>
-  </div>
-  <aside class="speaker-note">ย้อนสารบัญ &quot;หกข้อนี้ ใครตอบตัวเองไม่ได้ข้อไหน อ่าน topic file ข้อนั้นก่อนสัปดาห์หน้า&quot; ทิ้งท้าย: &quot;<strong>มีอะไรบ้างที่ทำได้ทางเทคนิค แต่ยังไม่ควรทำถ้าไม่มี permission</strong> — เก็บคำตอบไว้เจอกันในกิจกรรมการ์ดบ่ายนี้&quot;<br><br><strong>[Sources]</strong> 305331 course blueprint and Week 1 teaching kit</aside>
+  <aside class="speaker-note">หากตอบสี่ข้อนี้พร้อมเหตุผลและตัวอย่างได้ แสดงว่าสามารถใช้ภาษากลางของบทเพื่ออธิบายระบบได้ ไม่ใช่เพียงจำคำศัพท์<br><br><strong>[Sources]</strong> ตำรา 305331 บทที่ 1, §8</aside>
 </section>
     </div>
     <footer class="deck-help">
