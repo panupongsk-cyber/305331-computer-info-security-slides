@@ -220,6 +220,16 @@ h2 {
   align-content: start;
 }
 
+.card-grid-5,
+.card-grid-6 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card-grid-7,
+.card-grid-8 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .mini-card {
   padding: 20px 18px;
   border: 1px solid var(--line);
@@ -585,7 +595,7 @@ body.show-notes .slide.active .speaker-note { display: block; }
 .deck-card {
   display: grid;
   gap: 10px;
-  min-height: 160px;
+  min-height: 190px;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -617,6 +627,17 @@ body.show-notes .slide.active .speaker-note { display: block; }
   font-size: 23px;
   margin: 0;
   line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.deck-card-pending {
+  opacity: 0.62;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.deck-card-pending .week {
+  color: var(--gold);
 }
 
 .deck-card p {

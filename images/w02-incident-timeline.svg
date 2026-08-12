@@ -1,0 +1,49 @@
+<svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans Thai','Segoe UI',sans-serif">
+  <rect x="0" y="0" width="680" height="520" fill="#ffffff"/>
+
+  <text x="340" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">เหตุการณ์ "งานที่ไม่ได้ส่ง" — auth.log (หลักฐานสังเคราะห์เพื่อการสอน)</text>
+
+  <!-- vertical timeline spine -->
+  <line x1="120" y1="70" x2="120" y2="440" stroke="#1e3a8a" stroke-width="3"/>
+
+  <!-- event 1: LOGIN_FAIL x27 -->
+  <circle cx="120" cy="100" r="9" fill="#b45309"/>
+  <text x="60" y="105" text-anchor="end" font-size="14" font-weight="700" fill="#374151">21:43</text>
+  <rect x="150" y="78" width="470" height="46" rx="8" fill="#fef3c7" stroke="#b45309"/>
+  <text x="165" y="98" font-size="13" font-family="monospace" fill="#78350f">LOGIN_FAIL user=b6510001 ip=203.0.113.44</text>
+  <text x="165" y="116" font-size="13" font-weight="700" fill="#b45309">ซ้ำ 27 ครั้ง ภายใน 4 นาที — จุดผิดปกติแรก</text>
+
+  <!-- event 2: LOGIN_OK -->
+  <circle cx="120" cy="175" r="9" fill="#b91c1c"/>
+  <text x="60" y="180" text-anchor="end" font-size="14" font-weight="700" fill="#374151">21:47</text>
+  <rect x="150" y="153" width="470" height="46" rx="8" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="165" y="173" font-size="13" font-family="monospace" fill="#7f1d1d">LOGIN_OK user=b6510001 ip=203.0.113.44</text>
+  <text x="165" y="191" font-size="13" font-weight="700" fill="#b91c1c">สำเร็จหลังพยายาม 27 ครั้ง จาก IP เดิม</text>
+
+  <!-- event 3: SUBMIT -->
+  <circle cx="120" cy="250" r="9" fill="#b91c1c"/>
+  <text x="60" y="255" text-anchor="end" font-size="14" font-weight="700" fill="#374151">21:49</text>
+  <rect x="150" y="228" width="470" height="46" rx="8" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="165" y="248" font-size="13" font-family="monospace" fill="#7f1d1d">SUBMIT user=b6510001 assignment=A2 file=final_v2.zip</text>
+  <text x="165" y="266" font-size="13" font-weight="700" fill="#b91c1c">มีการส่งงานในชื่อเจ้าของบัญชี</text>
+
+  <!-- event 4: EMAIL_SENT -->
+  <circle cx="120" cy="325" r="9" fill="#0f766e"/>
+  <text x="60" y="330" text-anchor="end" font-size="14" font-weight="700" fill="#374151">21:49</text>
+  <rect x="150" y="303" width="470" height="46" rx="8" fill="#ccfbf1" stroke="#0f766e"/>
+  <text x="165" y="323" font-size="13" font-family="monospace" fill="#134e4a">EMAIL_SENT to=b6510001@... "ยืนยันการส่งงาน A2"</text>
+  <text x="165" y="341" font-size="13" font-weight="700" fill="#0f766e">detective control ที่ทำให้เรื่องถูกพบ</text>
+
+  <!-- event 5: student report -->
+  <circle cx="120" cy="405" r="9" fill="#1e3a8a"/>
+  <text x="60" y="400" text-anchor="end" font-size="14" font-weight="700" fill="#374151">เช้า</text>
+  <text x="60" y="416" text-anchor="end" font-size="14" font-weight="700" fill="#374151">ถัดไป</text>
+  <rect x="150" y="383" width="470" height="46" rx="8" fill="#e0e7ff" stroke="#1e3a8a"/>
+  <text x="165" y="403" font-size="13" fill="#1e3a8a">นิสิตรายงาน: "ผมไม่ได้ส่งงาน A2 และไฟล์ final_v2.zip ไม่ใช่ของผม"</text>
+  <text x="165" y="421" font-size="13" font-weight="700" fill="#1e3a8a">จุดเริ่มการอ่านหลักฐานย้อนกลับ</text>
+
+  <!-- caption -->
+  <rect x="50" y="460" width="580" height="46" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="340" y="479" text-anchor="middle" font-size="13" fill="#111827">สิ่งที่ log ชุดนี้ "ไม่บอก": เข้าไปแล้วเปิดอ่านอะไรบ้าง · มีการเปลี่ยนรหัสผ่านไหม · IP เป็นของใคร</text>
+  <text x="340" y="497" text-anchor="middle" font-size="12" fill="#6b7280">ช่องว่างของหลักฐานคือสิ่งที่ต้องเขียนเป็น limitation — ไม่ใช่ข้ามไป</text>
+</svg>

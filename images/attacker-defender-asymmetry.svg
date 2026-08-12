@@ -1,0 +1,61 @@
+<svg viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans Thai','Segoe UI',sans-serif">
+  <rect x="0" y="0" width="700" height="560" fill="#ffffff"/>
+
+  <text x="350" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#111827">ผู้โจมตีต้องการ 1 ช่องทาง — ผู้ป้องกันต้องปิดทุกช่องทาง</text>
+
+  <!-- spokes: center to 5 vector points -->
+  <line x1="350" y1="260" x2="350" y2="80"  stroke="#9ca3af" stroke-width="3"/>
+  <line x1="350" y1="260" x2="521" y2="204" stroke="#9ca3af" stroke-width="3"/>
+  <line x1="350" y1="260" x2="456" y2="406" stroke="#dc2626" stroke-width="4"/>
+  <line x1="350" y1="260" x2="244" y2="406" stroke="#9ca3af" stroke-width="3"/>
+  <line x1="350" y1="260" x2="179" y2="204" stroke="#9ca3af" stroke-width="3"/>
+
+  <!-- center asset -->
+  <circle cx="350" cy="260" r="58" fill="#1e3a8a"/>
+  <text x="350" y="255" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">ทรัพย์สิน</text>
+  <text x="350" y="275" text-anchor="middle" font-size="12" fill="#dbeafe">(Asset)</text>
+
+  <!-- blocked vector 1: Digital (top) -->
+  <circle cx="350" cy="80" r="26" fill="#16a34a"/>
+  <path d="M 340 80 L 348 88 L 362 72" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="350" y="46" text-anchor="middle" font-size="13" fill="#111827">Digital</text>
+  <text x="350" y="118" text-anchor="middle" font-size="11" fill="#166534">ปิดแล้ว</text>
+
+  <!-- blocked vector 2: Physical (upper right) -->
+  <circle cx="521" cy="204" r="26" fill="#16a34a"/>
+  <path d="M 511 204 L 519 212 L 533 196" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="558" y="185" text-anchor="middle" font-size="13" fill="#111827">Physical</text>
+  <text x="558" y="222" text-anchor="middle" font-size="11" fill="#166534">ปิดแล้ว</text>
+
+  <!-- BREACHED vector 3: Social Engineering (lower right) -->
+  <circle cx="456" cy="406" r="28" fill="#dc2626"/>
+  <path d="M 445 395 L 467 417 M 467 395 L 445 417" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <text x="500" y="440" text-anchor="middle" font-size="13" font-weight="700" fill="#7f1d1d">Social Engineering</text>
+  <text x="500" y="458" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">ช่องทางที่ผู้โจมตีใช้สำเร็จ</text>
+
+  <!-- blocked vector 4: Insider (lower left) -->
+  <circle cx="244" cy="406" r="26" fill="#16a34a"/>
+  <path d="M 234 406 L 242 414 L 256 398" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="200" y="440" text-anchor="middle" font-size="13" fill="#111827">Insider</text>
+  <text x="200" y="458" text-anchor="middle" font-size="11" fill="#166534">ปิดแล้ว</text>
+
+  <!-- blocked vector 5: Supply Chain (upper left) -->
+  <circle cx="179" cy="204" r="26" fill="#16a34a"/>
+  <path d="M 169 204 L 177 212 L 191 196" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="142" y="185" text-anchor="middle" font-size="13" fill="#111827">Supply Chain</text>
+  <text x="142" y="222" text-anchor="middle" font-size="11" fill="#166534">ปิดแล้ว</text>
+
+  <!-- attacker arrow entering via breached vector -->
+  <text x="560" y="470" text-anchor="middle" font-size="13" font-weight="700" fill="#7f1d1d">ผู้โจมตี</text>
+  <path d="M 545 460 L 470 415" stroke="#7f1d1d" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L6,3 z" fill="#7f1d1d"/>
+    </marker>
+  </defs>
+
+  <!-- caption box -->
+  <rect x="60" y="490" width="580" height="55" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="350" y="512" text-anchor="middle" font-size="13" fill="#111827">ผู้ป้องกันปิดไปแล้ว 4 จาก 5 ช่องทาง — แต่ผู้โจมตีต้องการแค่ 1 ช่องทางที่ยังเปิดอยู่ก็เพียงพอ</text>
+  <text x="350" y="530" text-anchor="middle" font-size="13" fill="#111827">นี่คือ Defender's Dilemma: ปิดครบ 100% แทบเป็นไปไม่ได้ เป้าหมายคือลด vulnerability window</text>
+</svg>
