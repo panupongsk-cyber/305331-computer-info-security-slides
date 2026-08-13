@@ -51,7 +51,7 @@ a { color: var(--blueprint); }
   justify-content: space-between;
   gap: 16px;
   color: #405a70;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .deck-topbar { margin-bottom: 10px; }
@@ -174,7 +174,7 @@ a { color: var(--blueprint); }
 .eyebrow {
   margin: 0;
   color: var(--blueprint);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1.25px;
@@ -191,10 +191,10 @@ ul { margin-top: 0; }
 
 h2 {
   margin-bottom: 0;
-  max-width: 1080px;
+  max-width: 1160px;
   color: var(--ink-strong);
-  font-size: 38px;
-  line-height: 1.18;
+  font-size: 50px;
+  line-height: 1.12;
   font-weight: 900;
   letter-spacing: -0.55px;
 }
@@ -205,8 +205,8 @@ h2 {
   min-height: 0;
   overflow: auto;
   padding: 2px 4px 0;
-  font-size: 25px;
-  line-height: 1.42;
+  font-size: 30px;
+  line-height: 1.36;
   overflow-wrap: anywhere;
 }
 
@@ -255,7 +255,7 @@ h2 {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
-  gap: 18px;
+  gap: 22px;
   align-content: center;
   height: 100%;
 }
@@ -268,7 +268,7 @@ h2 {
 .mini-card {
   position: relative;
   min-width: 0;
-  padding: 18px 16px 20px;
+  padding: 22px 18px 24px;
   border: 1.5px solid #7998af;
   border-radius: 0;
   background: rgba(255, 255, 255, 0.9);
@@ -306,7 +306,7 @@ h2 {
   padding: 5px 10px;
   border-bottom: 3px solid currentColor;
   color: var(--blueprint);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.55px;
@@ -315,19 +315,29 @@ h2 {
 .mini-card h4 {
   margin: 0 0 8px;
   color: var(--ink-strong);
-  font-size: 19px;
+  font-size: 28px;
   font-weight: 850;
   line-height: 1.22;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .mini-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.36;
+  font-size: 22px;
+  line-height: 1.32;
   overflow-wrap: anywhere;
 }
+
+.card-grid-3 .mini-card h4 { font-size: 32px; }
+.card-grid-3 .mini-card p { font-size: 26px; }
+.card-grid-5 .mini-card h4 {
+  font-size: 24px;
+  letter-spacing: -0.35px;
+}
+.card-grid-5 .mini-card p { font-size: 20px; }
 
 .flow-chain {
   display: flex;
@@ -345,16 +355,19 @@ h2 {
   flex: 1 1 0;
   min-width: 0;
   place-items: center;
-  min-height: 108px;
+  min-height: 150px;
   padding: 16px 12px;
   border: 1.5px solid #718fa5;
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 5px 5px 0 rgba(99, 138, 166, 0.14);
   color: var(--ink-strong);
-  font-size: 18px;
+  font-size: 23px;
   font-weight: 850;
   line-height: 1.28;
   text-align: center;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .flow-step:last-of-type {
@@ -366,7 +379,7 @@ h2 {
   display: grid;
   place-items: center;
   color: var(--blueprint);
-  font-size: 25px;
+  font-size: 32px;
   font-weight: 900;
 }
 
@@ -432,9 +445,9 @@ td code {
 }
 
 .slide-image img {
-  width: min(900px, 84%);
+  width: min(1060px, 94%);
   max-width: 100%;
-  max-height: 47vh;
+  max-height: 54vh;
   object-fit: contain;
   border: 1.5px solid #87a4b8;
   border-radius: 0;
@@ -445,7 +458,7 @@ td code {
 .slide-image figcaption {
   margin: 0;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 23px;
   line-height: 1.32;
   text-align: center;
 }
@@ -483,7 +496,7 @@ td code {
 .idea-card h3 {
   margin-bottom: 16px;
   color: var(--ink-strong);
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 850;
 }
 
@@ -577,8 +590,8 @@ td code {
   grid-row: 1;
   align-self: center;
   justify-self: center;
-  width: min(820px, 76%);
-  max-height: 42vh;
+  width: min(900px, 82%);
+  max-height: 43vh;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -588,7 +601,7 @@ td code {
   grid-row: 3;
   justify-self: start;
   color: var(--ink);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 650;
   text-align: left;
 }
@@ -596,8 +609,8 @@ td code {
 .layout-title h2 {
   max-width: 1120px;
   color: var(--ink-strong);
-  font-size: 50px;
-  line-height: 1.12;
+  font-size: 62px;
+  line-height: 1.08;
   font-weight: 950;
   letter-spacing: -0.8px;
 }
