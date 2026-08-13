@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Security engineering system blueprint</title>
+  <desc id="desc">A central protected processor connects to a server, database, browser, and evidence record through controlled data paths.</desc>
+  <defs>
+    <pattern id="minor-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#dce8f2" stroke-width="1"/>
+    </pattern>
+    <pattern id="major-grid" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="url(#minor-grid)"/>
+      <path d="M 120 0 L 0 0 0 120" fill="none" stroke="#bed2e3" stroke-width="1.4"/>
+    </pattern>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="7" dy="9" stdDeviation="5" flood-color="#183a61" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edfaff"/>
+      <stop offset="1" stop-color="#a8e3ef"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#277fbd"/>
+      <stop offset="1" stop-color="#163f73"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2f80b9"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="620" fill="#fbfdff"/>
+  <rect x="18" y="18" width="1164" height="584" fill="url(#major-grid)" stroke="#8ba7bd" stroke-width="2"/>
+  <g fill="none" stroke="#7799b2" stroke-width="2">
+    <path d="M18 72h38M18 18v38M1182 72h-38M1182 18v38M18 548h38M18 602v-38M1182 548h-38M1182 602v-38"/>
+    <path d="M560 18v30M640 18v30M560 602v-30M640 602v-30"/>
+  </g>
+
+  <g fill="none" stroke="#9ab7cb" stroke-width="2" opacity="0.8">
+    <circle cx="620" cy="308" r="218" stroke-dasharray="10 12"/>
+    <circle cx="620" cy="308" r="168"/>
+    <path d="M620 62v492M374 308h492M444 132l352 352M796 132L444 484" stroke-dasharray="5 9"/>
+    <path d="M600 74h40M620 54v40M600 542h40M620 522v40M386 288v40M366 308h40M834 288v40M814 308h40"/>
+  </g>
+
+  <g fill="none" stroke="#2f80b9" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.94">
+    <path d="M318 260H430c38 0 52 24 76 42" marker-end="url(#arrow)"/>
+    <path d="M620 154V212" marker-end="url(#arrow)"/>
+    <path d="M736 304c42-36 75-56 127-56h70" marker-end="url(#arrow)"/>
+    <path d="M710 410c42 42 66 65 66 112" marker-end="url(#arrow)"/>
+  </g>
+  <g fill="none" stroke="#9ed8e4" stroke-width="3" stroke-linecap="round">
+    <path d="M318 251H430c41 0 59 25 82 43M628 154v58M740 294c43-35 75-53 123-53h70M719 402c43 42 65 68 65 120"/>
+  </g>
+
+  <!-- Server stack -->
+  <g transform="translate(118 188)" filter="url(#soft-shadow)" stroke="#173b66" stroke-width="3">
+    <path d="M0 42L90 0l128 46-90 43z" fill="#e8f4fb"/>
+    <path d="M0 42v142l128 48V89z" fill="#d5e8f4"/>
+    <path d="M128 89v143l90-43V46z" fill="#bcd6e7"/>
+    <g fill="#fbfdff">
+      <path d="M20 70l88 32v30L20 100z"/><path d="M20 116l88 32v30l-88-32z"/>
+      <path d="M142 106l56-26v26l-56 27z"/><path d="M142 151l56-26v27l-56 26z"/>
+    </g>
+    <g fill="#2fb4c7" stroke="none"><circle cx="42" cy="91" r="5"/><circle cx="42" cy="138" r="5"/><circle cx="184" cy="97" r="5"/><circle cx="184" cy="143" r="5"/></g>
+  </g>
+
+  <!-- Database -->
+  <g transform="translate(540 62)" filter="url(#soft-shadow)" stroke="#173b66" stroke-width="3">
+    <ellipse cx="80" cy="24" rx="80" ry="24" fill="#f8fcff"/>
+    <path d="M0 24v80c0 14 36 25 80 25s80-11 80-25V24" fill="#cfe5f2"/>
+    <path d="M0 60c0 14 36 25 80 25s80-11 80-25M0 96c0 14 36 25 80 25s80-11 80-25" fill="none"/>
+    <ellipse cx="80" cy="24" rx="50" ry="12" fill="#e9f9fc" stroke="#2fb4c7"/>
+  </g>
+
+  <!-- Browser -->
+  <g transform="translate(930 176)" filter="url(#soft-shadow)" stroke="#173b66" stroke-width="3">
+    <rect width="214" height="146" rx="9" fill="#fafdff"/>
+    <path d="M0 30h214"/><circle cx="18" cy="16" r="5" fill="#d9a52f"/><circle cx="36" cy="16" r="5" fill="#48a77f"/><circle cx="54" cy="16" r="5" fill="#2fb4c7"/>
+    <rect x="20" y="50" width="74" height="58" fill="#d7eef5" stroke="#2f80b9"/>
+    <path d="M114 53h76M114 75h64M114 98h72M20 124h170"/>
+  </g>
+
+  <!-- Evidence record -->
+  <g transform="translate(730 486)" filter="url(#soft-shadow)" stroke="#173b66" stroke-width="3">
+    <path d="M0 0h124l38 38v92H0z" fill="#fafdff"/>
+    <path d="M124 0v38h38" fill="#cbe4ef"/>
+    <path d="M24 40h78M24 66h108M24 92h76"/>
+    <circle cx="127" cy="96" r="21" fill="#f3c85e" stroke="#b6811b"/>
+    <path d="M117 96l8 8 14-18" fill="none" stroke="#173b66" stroke-width="4"/>
+  </g>
+
+  <!-- Protected core -->
+  <g transform="translate(498 222)" filter="url(#soft-shadow)">
+    <path d="M0 58L122 0l150 60-123 59z" fill="#e5f4fa" stroke="#173b66" stroke-width="4"/>
+    <path d="M0 58v154l149 60V119z" fill="#c9e0ec" stroke="#173b66" stroke-width="4"/>
+    <path d="M149 119v153l123-58V60z" fill="#a9cada" stroke="#173b66" stroke-width="4"/>
+    <path d="M48 75l76-36 97 38-77 38z" fill="url(#core)" stroke="#2f80b9" stroke-width="3"/>
+    <path d="M122 52l70 28-48 23-70-28z" fill="#24b7cf" opacity="0.35"/>
+    <g transform="translate(76 -38)">
+      <path d="M58 0c-35 0-64 15-64 15v60c0 49 27 82 64 105 37-23 64-56 64-105V15S93 0 58 0z" fill="url(#shield)" stroke="#173b66" stroke-width="4"/>
+      <path d="M58 18c-21 0-42 9-42 9v46c0 34 18 58 42 75 24-17 42-41 42-75V27s-21-9-42-9z" fill="#dff6fb" stroke="#72c5d5" stroke-width="3"/>
+      <rect x="35" y="64" width="46" height="42" rx="7" fill="#f8fcff" stroke="#173b66" stroke-width="4"/>
+      <path d="M44 64V50c0-20 28-20 28 0v14" fill="none" stroke="#173b66" stroke-width="4"/>
+      <circle cx="58" cy="83" r="5" fill="#d9a52f" stroke="none"/>
+      <path d="M58 87v9" stroke="#d9a52f" stroke-width="4"/>
+    </g>
+    <g fill="#2fb4c7" stroke="#173b66" stroke-width="2"><circle cx="34" cy="184" r="7"/><circle cx="65" cy="197" r="7"/><circle cx="99" cy="210" r="7"/><circle cx="230" cy="186" r="7"/></g>
+  </g>
+</svg>
